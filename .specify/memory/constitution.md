@@ -1,50 +1,31 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Stroman Pipe Distribution Platform Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Specification-First & Traceability (Spec-Driven Development)
+- Không viết bất kỳ mã nguồn triển khai nào khi chưa có `spec.md`, `plan.md` và `tasks.md` được phê duyệt.
+- Mọi thay đổi kỹ thuật hoặc bổ sung tính năng đều phải được đối chiếu với các tiêu chí nghiệm thu (Acceptance Criteria) trong `spec.md`.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Hiệu năng & Trải nghiệm Người dùng (Performance & UX)
+- Stack công nghệ bắt buộc: **Next.js 15 App Router (React 19)**, **TypeScript Strict**, **Tailwind CSS**, **Lucide Icons**.
+- Thời gian tải trang dưới 1.5s, điểm Core Web Vitals (LCP, FID, CLS) xanh toàn diện.
+- Trải nghiệm đa thiết bị (Mobile First): Mọi bảng tra cứu thông số kỹ thuật (đường kính, áp suất, độ dày) phải hiển thị rõ ràng, dễ cuộn và trực quan trên cả điện thoại di động và máy tính để bàn.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Cấu trúc Quản trị Tập trung (Single Source of Truth)
+- Toàn bộ thông tin định danh thương hiệu (Brand name, logo, hotline, Zalo, địa chỉ kho, email, chính sách đại lý) được quản lý tập trung trong file cấu hình `site.config.ts`.
+- Không hardcode thông tin liên hệ, hotline hay URL tĩnh phân tán trong mã nguồn.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Chuẩn hóa Dữ liệu Kỹ thuật & Báo giá (Strict Schema & Type Safety)
+- Danh mục sản phẩm (uPVC, PP-R, HDPE, Kháng khuẩn, Phụ kiện) phải được định kiểu dữ liệu nghiêm ngặt bằng TypeScript và Zod schema.
+- Hỗ trợ công cụ tính toán dự toán vật tư và tạo yêu cầu báo giá (Quick Quote Builder) xuất danh mục rõ ràng cho đại lý và nhà thầu.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Bảo mật, An toàn & Độ tin cậy (Security & Reliability)
+- Tuân thủ tiêu chuẩn bảo mật OWASP: Xác thực và lọc sạch mọi input người dùng tại form liên hệ/báo giá, ngăn chặn XSS, CSRF và injection.
+- Không commit secrets, khóa API hay thông tin nhạy cảm vào git repository.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Quản trị & Tuân thủ (Governance)
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Mọi Pull Request hoặc commit tính năng phải đáp ứng kiểm thử và thỏa mãn checklist chất lượng.
+- Các Sub-agent chuyên môn (`frontend-developer`, `database-architect`, `security-auditor`, `test-automator`) thực thi đúng ranh giới trách nhiệm theo phân công từ `tasks.md`.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
-
-## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
-
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-11-09 | **Status**: Active
