@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { siteConfig } from "@/config/site";
-import { ClientGate } from "@/components/common/ClientGate";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -107,14 +106,12 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning className="min-h-screen flex flex-col antialiased font-sans">
-        <ClientGate>
-          <QuoteProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-            <FloatingContact />
-          </QuoteProvider>
-        </ClientGate>
+        <QuoteProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingContact />
+        </QuoteProvider>
       </body>
     </html>
   );
