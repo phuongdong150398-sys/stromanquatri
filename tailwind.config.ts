@@ -36,7 +36,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-roboto)", "Roboto", "system-ui", "-apple-system", "sans-serif"],
+        heading: ["var(--font-lato)", "Lato", "var(--font-roboto)", "Roboto", "sans-serif"],
       },
     },
   },

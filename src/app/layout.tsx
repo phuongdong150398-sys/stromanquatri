@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
+import { Roboto, Lato } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
+
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700", "900"],
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  variable: "--font-roboto",
+});
+
+const lato = Lato({
+  weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -77,14 +92,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="vi" className="scroll-smooth">
+    <html lang="vi" className={`scroll-smooth ${roboto.variable} ${lato.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-screen flex flex-col antialiased font-sans">
         <QuoteProvider>
           <Header />
           <main className="flex-1">{children}</main>
