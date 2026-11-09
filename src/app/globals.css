@@ -111,8 +111,23 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-float,
-  .animate-hero-pulse-glow {
+  .animate-hero-pulse-glow,
+  .animate-shimmer {
     animation: none !important;
   }
 }
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 
