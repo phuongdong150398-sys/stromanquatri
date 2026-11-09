@@ -8,9 +8,11 @@ import { useQuote } from "@/context/QuoteContext";
 
 export function FloatingContact() {
   const { totalCount } = useQuote();
+  const [mounted, setMounted] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 300);
     };
@@ -31,7 +33,7 @@ export function FloatingContact() {
       >
         <FileSpreadsheet className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
         <span className="text-xs font-bold">Dự toán vật tư</span>
-        {totalCount > 0 && (
+        {mounted && totalCount > 0 && (
           <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-950 text-[11px] font-black flex items-center justify-center animate-bounce">
             {totalCount}
           </span>

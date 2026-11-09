@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -20,8 +20,13 @@ import { useQuote } from "@/context/QuoteContext";
 export function Header() {
   const pathname = usePathname();
   const { totalCount } = useQuote();
+  const [mounted, setMounted] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
@@ -154,7 +159,7 @@ export function Header() {
             <FileSpreadsheet className="w-4 h-4 text-emerald-200 group-hover:scale-110 transition-transform" />
             <span className="hidden sm:inline">Dự Toán Báo Giá</span>
             <span className="sm:hidden">Dự Toán</span>
-            {totalCount > 0 && (
+            {mounted && totalCount > 0 && (
               <span className="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-bold text-stroman-700 bg-amber-400 rounded-full animate-pulse shadow-sm">
                 {totalCount}
               </span>
