@@ -1,10 +1,24 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { ArrowUpRight, Shield, Layers, Flame, Award, ChevronRight, Box } from "lucide-react";
 import { HeroScene } from "@/data/heroScenes";
-import { Stroman3DCanvas } from "@/components/3d/Stroman3DCanvas";
+
+// Dynamic import Three.js 3D WebGL Canvas to prevent any hydration mismatch
+const Stroman3DCanvas = dynamic(
+  () => import("@/components/3d/Stroman3DCanvas").then((mod) => mod.Stroman3DCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+        <div className="w-10 h-10 rounded-full border-2 border-emerald-500 border-t-transparent animate-spin" />
+        <span className="text-xs text-slate-400 font-mono">Đang khởi tạo WebGL 3D...</span>
+      </div>
+    ),
+  }
+);
 
 interface HeroShowcaseStageProps {
   scene: HeroScene;

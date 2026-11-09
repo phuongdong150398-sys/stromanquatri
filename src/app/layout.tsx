@@ -92,14 +92,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="vi" className={`scroll-smooth ${roboto.variable} ${lato.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`scroll-smooth ${roboto.variable} ${lato.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased font-sans">
+      <body suppressHydrationWarning className="min-h-screen flex flex-col antialiased font-sans">
         <QuoteProvider>
           <Header />
           <main className="flex-1">{children}</main>
