@@ -63,15 +63,15 @@ export default function RootLayout({
     logo: "https://stroman.vn/images/logo-meta.png",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+84-1900-6086",
-      contactType: "customer service",
+      telephone: "+84-915-333-808",
+      contactType: "sales and customer service",
       areaServed: "VN",
       availableLanguage: "Vietnamese",
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "124 Tôn Đức Thắng, Đống Đa",
-      addressLocality: "Hà Nội",
+      streetAddress: siteConfig.addresses.mainWarehouse,
+      addressLocality: "Quảng Trị",
       addressCountry: "VN",
     },
   };

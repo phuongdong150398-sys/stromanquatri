@@ -129,11 +129,15 @@ export function Footer() {
             </h4>
             <div className="space-y-2.5">
               <div>
-                <strong className="text-slate-200 block">Miền Bắc (Nhà máy):</strong>
+                <strong className="text-emerald-400 block font-bold">Tổng Kho Phân Phối Quảng Trị:</strong>
+                <span className="text-white font-medium">{siteConfig.addresses.mainWarehouse}</span>
+              </div>
+              <div className="pt-1">
+                <strong className="text-slate-200 block">Nhà máy Miền Bắc:</strong>
                 <span>{siteConfig.addresses.northFactory}</span>
               </div>
               <div>
-                <strong className="text-slate-200 block">Miền Nam (Nhà máy):</strong>
+                <strong className="text-slate-200 block">Nhà máy Miền Nam:</strong>
                 <span>{siteConfig.addresses.southFactory}</span>
               </div>
               <div>
