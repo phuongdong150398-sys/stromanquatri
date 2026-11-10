@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -9,91 +11,174 @@ import {
   Sparkles,
   PhoneCall,
   MessageCircle,
-  Factory,
   Layers,
   ChevronRight,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
+interface ShowcaseProduct {
+  id: string;
+  tabLabel: string;
+  name: string;
+  badge: string;
+  subtitle: string;
+  standard: string;
+  image: string;
+  statValue: string;
+  statLabel: string;
+}
+
+const showcaseProducts: ShowcaseProduct[] = [
+  {
+    id: "all",
+    tabLabel: "Trọn Bộ Hệ Thống",
+    name: "Hệ Sinh Thái Đồng Bộ Ströman 2026",
+    badge: "Chuẩn CHLB Đức",
+    subtitle: "Trọn bộ ống uPVC, PP-R Chịu Nhiệt, HDPE PE100 & Phụ kiện đúc ép đồng bộ",
+    standard: "ISO 1452 • DIN 8077/8078 • ISO 4427",
+    image: "/images/products/06_BO_SAN_PHAM_PNG_KHONG_CHU.png",
+    statValue: "70M$",
+    statLabel: "Vốn đầu tư",
+  },
+  {
+    id: "hdpe",
+    tabLabel: "Ống HDPE",
+    name: "Ống Nhựa HDPE PE100 Siêu Bền",
+    badge: "Bền bỉ 50 năm",
+    subtitle: "Hợp chất PE100 nguyên sinh, uốn dẻo vượt địa hình, áp suất PN6 - PN20",
+    standard: "ISO 4427:2007 • TCVN 7305",
+    image: "/images/products/01_HDPE_PNG_KHONG_CHU.png",
+    statValue: "Ø20 - 1200",
+    statLabel: "Đường kính (mm)",
+  },
+  {
+    id: "upvc",
+    tabLabel: "Ống uPVC",
+    name: "Ống Nhựa uPVC Tiêu Chuẩn Châu Âu",
+    badge: "Bán chạy nhất",
+    subtitle: "Đầy đủ hệ mét và hệ inch, không chì, lòng ống siêu nhẵn thoát nước êm",
+    standard: "TCVN 8491:2011 • ISO 1452",
+    image: "/images/products/02_uPVC_PNG_KHONG_CHU.png",
+    statValue: "PN6 - PN25",
+    statLabel: "Cấp áp suất",
+  },
+  {
+    id: "ppr",
+    tabLabel: "PP-R Nước Nóng",
+    name: "Ống Chịu Nhiệt PP-R Cao Cấp",
+    badge: "Chịu nhiệt 95°C",
+    subtitle: "Hạt nhựa Borealis/Basell Đức, liên kết phân tử hàn nhiệt đồng nhất",
+    standard: "DIN 8077/8078 • ISO 15874",
+    image: "/images/products/03_PPR_XANH_PNG_KHONG_CHU.png",
+    statValue: "95°C",
+    statLabel: "Nhiệt làm việc",
+  },
+  {
+    id: "ppr-ab",
+    tabLabel: "PP-R Kháng Khuẩn",
+    name: "Ống PP-R Kháng Khuẩn Nano Bạc",
+    badge: "Đẳng cấp Y tế",
+    subtitle: "Cấu trúc 3 lớp tích hợp Nano Bạc diệt khuẩn 99.9%, chuẩn nước uống trực tiếp",
+    standard: "QCVN 12-1:2011/BYT • FDA",
+    image: "/images/products/04_PPR_TRANG_PNG_KHONG_CHU.png",
+    statValue: "99.9%",
+    statLabel: "Diệt khuẩn",
+  },
+  {
+    id: "fittings",
+    tabLabel: "Phụ Kiện",
+    name: "Hệ Phụ Kiện Đúc Đồng Bộ",
+    badge: "Khuôn ép Châu Âu",
+    subtitle: "Cút, Tê, Van, Măng Sông, Ren đồng thau nguyên khối CNC chịu tải trọng lớn",
+    standard: "TCVN 8491 • DIN 8077",
+    image: "/images/products/Stroman_Phu_kien_uPVC.png",
+    statValue: "100%",
+    statLabel: "Khớp nối chuẩn",
+  },
+];
+
 export function HeroSection() {
+  const [activeProduct, setActiveProduct] = useState<ShowcaseProduct>(showcaseProducts[0]);
+
   return (
-    <section className="relative bg-gradient-to-b from-slate-950 via-[#080E1E] to-slate-950 text-white overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-slate-800/80">
-      {/* 1. DECORATIVE AMBIENT SPOTLIGHTS & TECH GRID */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute inset-0 tech-grid-pattern opacity-15 pointer-events-none" />
+    <section className="relative bg-gradient-to-b from-white via-slate-50/70 to-slate-100/80 text-slate-900 overflow-hidden pt-8 pb-14 lg:pt-14 lg:pb-18 border-b border-slate-200/80">
+      {/* 1. SUBTLE AMBIENT INDUSTRIAL GLOWS & TECH GRID */}
+      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-emerald-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute inset-0 tech-grid-pattern opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* ==================== LEFT COLUMN: CONTENT & CTA (7/12) ==================== */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
             {/* Top Technology Capsule Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-cyan-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold tracking-wide shadow-sm backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-800 text-xs font-bold tracking-wide shadow-xs">
               <span className="text-sm">🇩🇪</span>
-              <span className="uppercase">CÔNG NGHỆ CHLB ĐỨC • VỐN ĐẦU TƯ 70 TRIỆU USD</span>
+              <span className="uppercase font-extrabold text-[11px] sm:text-xs">
+                CÔNG NGHỆ CHLB ĐỨC • VỐN ĐẦU TƯ 70 TRIỆU USD
+              </span>
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-white">
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-slate-950">
                 Đẳng Cấp Đức. <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
-                  Sức Sống Mới Cho Mọi Công Trình.
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-stroman-600">
+                  Bền Bỉ Vượt 50 Năm.
                 </span>
               </h1>
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl pt-1">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 Hệ thống phân phối ống nhựa Ströman trực tiếp từ nhà máy thuộc{" "}
-                <strong className="text-white font-semibold">Tập đoàn Tân Á Đại Thành</strong> tại{" "}
-                <strong className="text-emerald-400 font-semibold">{siteConfig.distributorName}</strong>. 
-                Cung cấp giải pháp trọn gói các dòng ống uPVC, PP-R Chịu Nhiệt, PP-R Kháng Khuẩn và HDPE PE100 cho mọi dự án dân dụng & hạ tầng trọng điểm.
+                <strong className="text-slate-900 font-semibold">Tập đoàn Tân Á Đại Thành</strong> tại{" "}
+                <strong className="text-emerald-700 font-bold">{siteConfig.distributorName}</strong>. 
+                Cung cấp giải pháp trọn gói các dòng ống uPVC, PP-R Chịu Nhiệt, PP-R Kháng Khuẩn và HDPE PE100 cho mọi dự án trọng điểm.
               </p>
             </div>
 
-            {/* 3 GLASSMORPHISM TRUST PILL CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 backdrop-blur-md hover:bg-white/[0.08] hover:border-emerald-500/40 transition-all duration-300 group">
+            {/* 3 CLEAN WHITE TRUST CARDS */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-3.5 shadow-xs hover:border-emerald-300 hover:shadow-md transition-all duration-300 group">
                 <div className="flex items-center gap-2 mb-1">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
-                  <strong className="text-xs font-bold text-white">100% Nguyên Sinh</strong>
+                  <ShieldCheck className="w-4 h-4 text-emerald-600 group-hover:scale-110 transition-transform" />
+                  <strong className="text-xs font-bold text-slate-900">100% Nguyên Sinh</strong>
                 </div>
-                <p className="text-[11px] text-slate-400 leading-snug">
+                <p className="text-[11px] text-slate-500 leading-snug">
                   Hạt nhựa nhập khẩu Borealis & Basell Đức
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 backdrop-blur-md hover:bg-white/[0.08] hover:border-emerald-500/40 transition-all duration-300 group">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-3.5 shadow-xs hover:border-emerald-300 hover:shadow-md transition-all duration-300 group">
                 <div className="flex items-center gap-2 mb-1">
-                  <Award className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
-                  <strong className="text-xs font-bold text-white">Bảo Hành 10 Năm</strong>
+                  <Award className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+                  <strong className="text-xs font-bold text-slate-900">Bảo Hành 10 Năm</strong>
                 </div>
-                <p className="text-[11px] text-slate-400 leading-snug">
+                <p className="text-[11px] text-slate-500 leading-snug">
                   Cam kết chất lượng từ Tân Á Đại Thành
                 </p>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 backdrop-blur-md hover:bg-white/[0.08] hover:border-emerald-500/40 transition-all duration-300 group">
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-3.5 shadow-xs hover:border-emerald-300 hover:shadow-md transition-all duration-300 group">
                 <div className="flex items-center gap-2 mb-1">
-                  <Sparkles className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-                  <strong className="text-xs font-bold text-white">Giao Tận Chân Dự Án</strong>
+                  <Sparkles className="w-4 h-4 text-cyan-600 group-hover:scale-110 transition-transform" />
+                  <strong className="text-xs font-bold text-slate-900">Giao Tận Chân Dự Án</strong>
                 </div>
-                <p className="text-[11px] text-slate-400 leading-snug">
+                <p className="text-[11px] text-slate-500 leading-snug">
                   Chiết khấu cao nhất cho nhà thầu Quảng Trị
                 </p>
               </div>
             </div>
 
             {/* CTA BUTTONS & HOTLINE ROW */}
-            <div className="pt-3 space-y-4">
-              <div className="flex flex-wrap items-center gap-3.5">
-                {/* Primary CTA with Shimmer Effect */}
+            <div className="pt-2 space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Primary CTA Button */}
                 <Link
                   href="/du-toan-bao-gia"
-                  className="relative px-6 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/20 transition-all flex items-center gap-2.5 overflow-hidden group"
+                  className="relative px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-600/25 transition-all flex items-center gap-2 group overflow-hidden"
                 >
-                  <div className="absolute inset-0 w-1/2 h-full bg-white/25 skew-x-12 animate-shimmer pointer-events-none" />
-                  <FileSpreadsheet className="w-4 h-4 text-slate-950 shrink-0" />
+                  <FileSpreadsheet className="w-4 h-4 text-white shrink-0" />
                   <span>Tạo Dự Toán & Nhận Báo Giá</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
                 </Link>
@@ -101,9 +186,9 @@ export function HeroSection() {
                 {/* Secondary CTA */}
                 <Link
                   href="/san-pham"
-                  className="px-5 py-4 rounded-2xl bg-white/[0.06] hover:bg-white/[0.12] text-white font-bold text-sm border border-white/15 backdrop-blur-md transition-all flex items-center gap-2"
+                  className="px-5 py-3.5 rounded-2xl bg-white hover:bg-slate-100 text-slate-800 font-bold text-sm border border-slate-200/90 shadow-xs transition-all flex items-center gap-2"
                 >
-                  <Layers className="w-4 h-4 text-slate-300" />
+                  <Layers className="w-4 h-4 text-slate-600" />
                   <span>Xem Danh Mục Kỹ Thuật</span>
                 </Link>
               </div>
@@ -112,17 +197,17 @@ export function HeroSection() {
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
                   href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-slate-900/90 to-slate-800/90 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-white transition-all shadow-md group"
+                  className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white border border-emerald-300/80 hover:border-emerald-500 text-slate-800 hover:text-emerald-700 transition-all shadow-xs group"
                   title="Gọi trực tiếp Hotline Tổng Kho"
                 >
-                  <div className="w-8 h-8 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-200/60 flex items-center justify-center text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <PhoneCall className="w-4 h-4 animate-bounce" />
                   </div>
                   <div className="text-left">
-                    <span className="block text-[10px] text-slate-400 uppercase tracking-wider">
+                    <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
                       Hotline Kỹ Thuật 24/7
                     </span>
-                    <strong className="text-sm font-extrabold text-white block">
+                    <strong className="text-sm font-extrabold text-slate-900 block">
                       {siteConfig.hotline}
                     </strong>
                   </div>
@@ -132,113 +217,79 @@ export function HeroSection() {
                   href={siteConfig.socials.zaloUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-blue-600/15 border border-blue-500/30 hover:bg-blue-600/25 text-blue-300 font-bold text-xs transition-all shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-blue-50 border border-blue-200/80 hover:bg-blue-100/70 text-blue-800 font-bold text-xs transition-all shadow-xs"
                 >
-                  <MessageCircle className="w-4 h-4 text-blue-400" />
+                  <MessageCircle className="w-4 h-4 text-blue-600" />
                   <span>Chat Zalo Báo Giá File Excel</span>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* ==================== RIGHT COLUMN: MULTI-LAYER PRODUCT SHOWCASE (5/12) ==================== */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-gradient-to-b from-slate-800/80 via-slate-900/90 to-[#070D1E]/95 p-6 sm:p-8 backdrop-blur-xl group hover:border-emerald-500/40 transition-all duration-500">
+          {/* ==================== RIGHT COLUMN: HERO PRODUCT SHOWCASE (5/12) ==================== */}
+          <div className="lg:col-span-5 relative flex flex-col items-center">
+            
+            {/* Elegant Horizontal Category Selector Pills */}
+            <div className="w-full flex items-center justify-start sm:justify-center gap-1.5 overflow-x-auto pb-2 mb-4 no-scrollbar">
+              {showcaseProducts.map((p) => {
+                const isActive = p.id === activeProduct.id;
+                return (
+                  <button
+                    key={p.id}
+                    type="button"
+                    onClick={() => setActiveProduct(p)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? "bg-slate-950 text-white shadow-md scale-105"
+                        : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/90 shadow-xs"
+                    }`}
+                  >
+                    {p.tabLabel}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Frameless Hero Product Stage with Ambient Floor Pedestal */}
+            <div className="relative w-full h-72 sm:h-84 md:h-92 flex items-center justify-center p-2">
               
-              {/* Radial Ambient Spotlight */}
-              <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none" />
+              {/* Floor Pedestal Shadow (Soft elliptical reflection) */}
+              <div className="absolute bottom-2 w-4/5 h-8 bg-slate-950/10 blur-xl rounded-full pointer-events-none" />
 
-              {/* Showcase Header */}
-              <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4 relative z-10">
-                <div>
-                  <span className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block">
-                    HỆ SINH THÁI ĐỒNG BỘ
-                  </span>
-                  <h3 className="text-lg font-black text-white">Ống Nhựa Ströman 2026</h3>
-                </div>
-                <div className="px-3 py-1 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 text-emerald-300 text-xs font-black border border-emerald-500/30 shadow-inner">
-                  CHLB ĐỨC
-                </div>
+              {/* Product Image Stage */}
+              <div className="relative z-10 w-full h-full flex items-center justify-center transition-all duration-500">
+                <img
+                  key={activeProduct.image}
+                  src={activeProduct.image}
+                  alt={activeProduct.name}
+                  className="max-h-68 sm:max-h-80 md:max-h-84 w-auto object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.12)] transition-transform duration-500 hover:scale-105"
+                />
               </div>
 
-              {/* Floating Top Annotation Pill */}
-              <div className="absolute top-20 right-6 z-20 hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 border border-emerald-500/40 text-[11px] font-bold text-emerald-300 backdrop-blur-md shadow-lg pointer-events-none">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>ISO 1452 • DIN 8077/8078</span>
+              {/* Floating Quality Badge (Top Right) */}
+              <div className="absolute top-2 right-2 z-20 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-slate-200/80 text-[11px] font-bold text-slate-800 shadow-md backdrop-blur-sm pointer-events-none">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>{activeProduct.badge}</span>
+              </div>
+            </div>
+
+            {/* Active Product Details Capsule */}
+            <div className="w-full mt-3 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <h4 className="text-sm font-black text-slate-900 leading-snug">
+                  {activeProduct.name}
+                </h4>
+                <p className="text-xs text-slate-500 mt-0.5 line-clamp-1">
+                  {activeProduct.subtitle}
+                </p>
               </div>
 
-              {/* Multi-Product Composite Image Presentation */}
-              <div className="relative h-64 sm:h-72 w-full flex items-center justify-center p-2 relative z-10">
-                {/* Background Shadow Pedestal */}
-                <div className="absolute bottom-4 w-4/5 h-8 bg-black/60 blur-xl rounded-full pointer-events-none" />
-
-                {/* Layer 1: HDPE Background Pipe (Chiều sâu bên phải) */}
-                <div className="absolute right-0 top-6 w-3/5 opacity-60 group-hover:opacity-85 group-hover:translate-x-2 transition-all duration-500 pointer-events-none">
-                  <img
-                    src="https://stroman.vn/Upload/products/Ong-nhua-HDPE134248429157536896.png"
-                    alt="Ống HDPE Stroman PE100"
-                    className="max-h-44 w-auto object-contain filter drop-shadow-xl"
-                  />
-                  <span className="block text-[10px] font-mono text-cyan-400 text-right mt-1">HDPE PE100</span>
+              <div className="flex items-center gap-2 text-right shrink-0">
+                <div className="px-3 py-1 rounded-xl bg-slate-100 text-slate-700 text-[11px] font-mono font-semibold">
+                  {activeProduct.standard.split("•")[0]}
                 </div>
-
-                {/* Layer 2: Main Foreground uPVC / PP-R System */}
-                <div className="relative z-10 transition-transform duration-500 group-hover:scale-105">
-                  <img
-                    src="https://stroman.vn/Upload/products/He-Met134248426535377688.png"
-                    alt="Ống nhựa Stroman hệ mét uPVC"
-                    className="max-h-56 sm:max-h-60 w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,108,65,0.4)]"
-                  />
-                </div>
-
-                {/* Layer 3: Fittings Foreground Accent (Góc trái) */}
-                <div className="absolute left-0 bottom-2 w-28 opacity-80 group-hover:opacity-100 group-hover:-translate-x-1 transition-all duration-500 pointer-events-none">
-                  <img
-                    src="https://stroman.vn/Upload/products/Phu-kien-uPVC134248427637228230.png"
-                    alt="Phụ kiện uPVC đồng bộ"
-                    className="max-h-24 w-auto object-contain filter drop-shadow-lg"
-                  />
-                </div>
-              </div>
-
-              {/* Floating Bottom Quality Pill */}
-              <div className="flex items-center justify-between text-xs text-slate-300 mt-2 px-1">
-                <span className="inline-flex items-center gap-1 text-[11px] text-cyan-300 font-mono">
-                  <Sparkles className="w-3 h-3 text-cyan-400" />
-                  Độ bền thiết kế: Trên 50 năm
-                </span>
-                <span className="text-[11px] text-slate-400 font-mono">
-                  Áp suất: Tới PN25
-                </span>
-              </div>
-
-              {/* 3 Industrial Credibility Metrics */}
-              <div className="grid grid-cols-3 gap-2 pt-5 mt-4 border-t border-white/10 text-center relative z-10">
-                <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-xl sm:text-2xl font-black text-emerald-400 block tracking-tight">
-                    70M$
-                  </span>
-                  <span className="block text-[10px] text-slate-400 uppercase font-medium mt-0.5">
-                    Vốn đầu tư
-                  </span>
-                </div>
-
-                <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-xl sm:text-2xl font-black text-cyan-400 block tracking-tight">
-                    50+ Năm
-                  </span>
-                  <span className="block text-[10px] text-slate-400 uppercase font-medium mt-0.5">
-                    Độ bền thiết kế
-                  </span>
-                </div>
-
-                <div className="p-2 rounded-xl bg-white/[0.03] border border-white/5">
-                  <span className="text-xl sm:text-2xl font-black text-emerald-400 block tracking-tight">
-                    100%
-                  </span>
-                  <span className="block text-[10px] text-slate-400 uppercase font-medium mt-0.5">
-                    Tự động hóa Đức
-                  </span>
+                <div className="px-3 py-1 rounded-xl bg-emerald-50 text-emerald-800 text-[11px] font-bold border border-emerald-200/60">
+                  {activeProduct.statValue}
                 </div>
               </div>
             </div>
@@ -246,23 +297,23 @@ export function HeroSection() {
         </div>
 
         {/* ==================== BOTTOM TECHNICAL TRUST BAR ==================== */}
-        <div className="mt-14 pt-8 border-t border-slate-800/80">
+        <div className="mt-12 pt-7 border-t border-slate-200/80">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 transition-colors">
+            <div className="flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
               <span className="text-lg">🇩🇪</span>
-              <span className="text-xs font-semibold">Công nghệ CHLB Đức (Krauss Maffei)</span>
+              <span className="text-xs font-bold">Công nghệ CHLB Đức (Krauss Maffei)</span>
             </div>
-            <div className="flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 transition-colors">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-semibold">Chuẩn Quốc Tế ISO 1452 & ISO 4427</span>
+            <div className="flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span className="text-xs font-bold">Chuẩn Quốc Tế ISO 1452 & ISO 4427</span>
             </div>
-            <div className="flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 transition-colors">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-semibold">Tiêu Chuẩn TCVN 8491 & TCVN 7305</span>
+            <div className="flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
+              <Award className="w-4 h-4 text-amber-500" />
+              <span className="text-xs font-bold">Tiêu Chuẩn TCVN 8491 & TCVN 7305</span>
             </div>
-            <div className="flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 transition-colors">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
-              <span className="text-xs font-semibold">Thương Hiệu Quốc Gia Tân Á Đại Thành</span>
+            <div className="flex items-center justify-center gap-2 text-slate-600 hover:text-slate-900 transition-colors">
+              <Sparkles className="w-4 h-4 text-cyan-600" />
+              <span className="text-xs font-bold">Thương Hiệu Quốc Gia Tân Á Đại Thành</span>
             </div>
           </div>
         </div>

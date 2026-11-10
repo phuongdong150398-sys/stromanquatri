@@ -1,25 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto, Lato } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContact } from "@/components/layout/FloatingContact";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
-
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700", "900"],
-  subsets: ["latin", "vietnamese"],
-  display: "swap",
-  variable: "--font-roboto",
-});
-
-const lato = Lato({
-  weight: ["300", "400", "700", "900"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-lato",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -96,10 +81,16 @@ export default function RootLayout({
       lang="vi"
       translate="no"
       suppressHydrationWarning
-      className={`scroll-smooth notranslate ${roboto.variable} ${lato.variable}`}
+      className="scroll-smooth notranslate"
     >
       <head>
         <meta name="google" content="notranslate" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

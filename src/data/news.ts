@@ -32,7 +32,7 @@ export const newsData: NewsArticle[] = [
       "Vì sao các công trình bệnh viện, trường học và biệt thự hiện đại đang chuyển dịch sang dùng ống PP-R kháng khuẩn công nghệ Nano Bạc 3 lớp?",
     category: "Kỹ Thuật",
     date: "15/10/2026",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-PPR-Khang-Khuan134248423105369332.png",
+    image: "/images/products/Stroman_Ong_nhua_PP-R_Khang_khuan.png",
     content: [
       "Theo nghiên cứu của Viện Sức khỏe Nghề nghiệp & Môi trường, lòng ống cấp nước sau 3-5 năm sử dụng thường hình thành lớp màng sinh học biofilm là nơi trú ngụ của vi khuẩn E.coli và trực khuẩn mủ xanh.",
       "Ống nhựa PP-R Kháng Khuẩn Stroman với các phân tử Nano Bạc tích hợp trực tiếp vào lớp nhựa trong cùng có khả năng phá hủy cấu trúc DNA của vi khuẩn, duy trì độ tinh khiết của dòng nước suốt vòng đời công trình.",

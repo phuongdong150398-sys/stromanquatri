@@ -7,7 +7,7 @@ export const categoriesMeta: CategoryMeta[] = [
     tagline: "Tiêu chuẩn ISO 1452 & TCVN 8491 - Công nghệ Đức",
     description:
       "Dòng ống uPVC cao cấp phục vụ thoát nước thải, cấp nước sạch và ống luồn bảo vệ cáp điện ngầm. Độ bền cơ học cao, không độc hại, chịu áp lực va đập vượt trội.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-uPVC134248424738456593.png",
+    image: "/images/products/02_uPVC_PNG_KHONG_CHU.png",
     featuredCount: 42,
   },
   {
@@ -16,7 +16,7 @@ export const categoriesMeta: CategoryMeta[] = [
     tagline: "Chịu nhiệt tới 95°C - Áp lực tới 25 bar",
     description:
       "Sản xuất từ hạt nhựa nguyên sinh PP-R nhập khẩu từ các tập đoàn hàng đầu thế giới (Borealis, Basell). Lý tưởng cho hệ thống cấp nước nóng lạnh dân dụng và công nghiệp.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-PPR134248427957542709.png",
+    image: "/images/products/Stroman_Ong_nhua_PP-R.png",
     featuredCount: 28,
   },
   {
@@ -25,7 +25,7 @@ export const categoriesMeta: CategoryMeta[] = [
     tagline: "Công nghệ Nano Bạc 3 lớp - An toàn tuyệt đối cho nước uống",
     description:
       "Cấu trúc 3 lớp tích hợp hợp chất kháng khuẩn Nano Silver, ngăn chặn 99.9% vi khuẩn, nấm mốc và rêu bám trong lòng ống. Đạt chuẩn y tế cao cấp nhất.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-PPR-Khang-Khuan134248423105369332.png",
+    image: "/images/products/Stroman_Ong_nhua_PP-R_Khang_khuan.png",
     featuredCount: 16,
   },
   {
@@ -34,7 +34,7 @@ export const categoriesMeta: CategoryMeta[] = [
     tagline: "Vật liệu PE100 nguyên sinh - Tuổi thọ trên 50 năm",
     description:
       "Ống chịu áp suất cực cao, dẻo dai, uốn lượn theo địa hình, kháng hóa chất ăn mòn và tia cực tím UV. Giải pháp số 1 cho hạ tầng đô thị, ngầm hóa và khai khoáng.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-HDPE134248429157536896.png",
+    image: "/images/products/Stroman_Ong_nhua_HDPE.png",
     featuredCount: 35,
   },
   {
@@ -43,7 +43,7 @@ export const categoriesMeta: CategoryMeta[] = [
     tagline: "Cút, Tê, Măng Sông, Đầu Ren Đồng Cao Cấp",
     description:
       "Hệ phụ kiện đồng bộ 100% về kích cỡ và cơ tính với thân ống, giúp mối nối kín khít tuyệt đối, chống rò rỉ dưới mọi áp suất thử nghiệm.",
-    image: "https://stroman.vn/Upload/products/Phu-kien-uPVC134248427637228230.png",
+    image: "/images/products/Stroman_Phu_kien_uPVC.png",
     featuredCount: 64,
   },
 ];
@@ -62,7 +62,7 @@ export const productsData: Product[] = [
       "Ống nhựa uPVC hệ mét tiêu chuẩn ISO 1452-2:2009 / TCVN 8491-2:2011, đường kính từ Ø21mm đến Ø400mm, độ bền cơ học cao, chịu hóa chất.",
     description:
       "Ống nhựa uPVC Stroman hệ mét được sản xuất trên dây chuyền công nghệ tự động hóa hoàn toàn từ CHLB Đức của hãng Krauss Maffei và Battenfeld-Cincinnati. Sản phẩm không chứa chì, an toàn tuyệt đối cho nguồn nước sinh hoạt và có độ nhẵn lòng ống tối ưu, giảm thiểu lực cản dòng chảy.",
-    image: "https://stroman.vn/Upload/products/He-Met134248426535377688.png",
+    image: "/images/products/02_uPVC_PNG_KHONG_CHU.png",
     features: [
       "Nguyên liệu nhựa PVC nguyên sinh nhập khẩu từ Đức, Nhật Bản, Đài Loan",
       "Khả năng chịu áp lực cao từ PN6 đến PN25",
@@ -110,7 +110,7 @@ export const productsData: Product[] = [
       "Ống nhựa uPVC hệ inch đường kính danh nghĩa từ 1/2 inch đến 8 inch (tương đương Ø21 đến Ø220), phù hợp các công trình cấp thoát nước dân dụng truyền thống.",
     description:
       "Dòng ống uPVC hệ inch sản xuất theo tiêu chuẩn Anh Quốc BS 3505 / AS/NZS 1477, chuyên dụng cho các nhà thầu thi công cải tạo và xây mới mạng lưới dân dụng quen thuộc với hệ đo lường inch.",
-    image: "https://stroman.vn/Upload/products/He-Inch134248426348120967.png",
+    image: "/images/products/02_uPVC_PNG_KHONG_CHU.png",
     features: [
       "Tương thích hoàn hảo với các phụ kiện van vòi ren hệ inch phổ biến tại Việt Nam",
       "Khả năng chống tia UV ngoài trời khi sử dụng các mã có phụ gia carbon black",
@@ -148,7 +148,7 @@ export const productsData: Product[] = [
       "Ống chịu nhiệt PP-R Stroman chuyên dùng cho đường nước nóng lạnh, sản xuất từ hạt nhựa Random Copolymer Polypropylene nguyên sinh, áp suất PN10 đến PN25.",
     description:
       "Ống nhựa PP-R Stroman là giải pháp hàng đầu cho đường ống dẫn nước nóng năng lượng mặt trời, lò hơi và nước sinh hoạt cao cấp. Nhờ liên kết phân tử đồng nhất khi hàn nhiệt ở nhiệt độ 260°C, mối hàn hòa tan hoàn toàn tạo nên khối liền mạch, không bao giờ xảy ra hiện tượng rò rỉ tại khớp nối.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-PPR134248427957542709.png",
+    image: "/images/products/Stroman_Ong_nhua_PP-R.png",
     features: [
       "Chịu được nhiệt độ làm việc liên tục đến 95°C và nhiệt độ đỉnh lên tới 110°C",
       "Độ dẫn nhiệt thấp (0.24 W/m.K), giúp giữ nhiệt nước nóng cực tốt, tiết kiệm năng lượng",
@@ -196,7 +196,7 @@ export const productsData: Product[] = [
       "Đột phá công nghệ 3 lớp tích hợp Nano Bạc kháng khuẩn 99.99%, ngăn ngừa màng sinh học biofilm, bảo vệ tuyệt đối nguồn nước uống trực tiếp.",
     description:
       "Ống PP-R Kháng Khuẩn Stroman là sản phẩm cao cấp độc quyền của Tập đoàn Tân Á Đại Thành. Ống có cấu tạo 3 lớp đặc biệt: Lớp trong cùng phủ hạt Nano Silver diệt khuẩn và chống đóng bám cặn; Lớp giữa là nhựa PP-R nguyên sinh gia cường tăng cứng chịu áp lực cao; Lớp ngoài chống tia tử ngoại UV ngăn ngừa lão hóa quang hóa khi lắp đặt ngoài trời.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-PPR-Khang-Khuan134248423105369332.png",
+    image: "/images/products/Stroman_Ong_nhua_PP-R_Khang_khuan.png",
     features: [
       "Diệt khuẩn chủ động: Các ion bạc (Ag+) phá vỡ màng tế bào của 650+ chủng vi khuẩn gây hại",
       "Ngăn chặn 100% rêu mốc và nấm tảo sinh sôi trong lòng ống",
@@ -236,7 +236,7 @@ export const productsData: Product[] = [
       "Ống nhựa HDPE PE100 chịu áp suất từ PN6 đến PN20, đường kính từ Ø20mm đến Ø1200mm, đàn hồi cao, chống động đất, ngầm hóa hạ tầng quy mô lớn.",
     description:
       "Ống HDPE Stroman được chế tạo từ 100% hợp chất polyetylen mật độ cao thế hệ PE100. Ống sở hữu khả năng uốn dẻo tuyệt vời, có thể cuộn tròn đối với các cỡ nhỏ (Ø20 - Ø90) hoặc cung cấp dạng cây 6m-12m (Ø110 - Ø1200). Các đoạn ống liên kết bằng phương pháp hàn nhiệt đối đầu (butt fusion) hoặc hàn điện trở (electrofusion) tạo nên đường ống liên tục không có mối nối yếu.",
-    image: "https://stroman.vn/Upload/products/Ong-nhua-HDPE134248429157536896.png",
+    image: "/images/products/Stroman_Ong_nhua_HDPE.png",
     features: [
       "Vật liệu PE100 hàm lượng carbon black >= 2% chống lại sự phân hủy của tia UV",
       "Kháng mài mòn cực tốt khi bơm bùn cát, quặng mỏ và nước biển mặn",
@@ -286,7 +286,7 @@ export const productsData: Product[] = [
       "Phụ kiện đúc ép định hình đồng bộ cho ống uPVC: Cút 90°, Cút 45°, Tê đều, Tê thu, Nối ren trong/ngoài, Van bi rắc co kép.",
     description:
       "Phụ kiện uPVC Stroman được ép phun trên khuôn thép cao cấp xuất xứ từ châu Âu, độ dày thành phụ kiện luôn đạt chuẩn đồng đều, bề mặt nhẵn bóng, khít chặt với thân ống khi dán keo, triệt tiêu 100% rủi ro bung khớp nối.",
-    image: "https://stroman.vn/Upload/products/Phu-kien-uPVC134248427637228230.png",
+    image: "/images/products/Stroman_Phu_kien_uPVC.png",
     features: [
       "Khuôn ép áp lực cao chịu va đập",
       "Kích thước chính xác tới từng micromet",
@@ -316,7 +316,7 @@ export const productsData: Product[] = [
       "Phụ kiện PP-R ren đồng thau mạ niken chống oxy hóa: Nối ren trong, Nối ren ngoài, Cút ren đồng, Tê ren đồng, Rắc co nhiệt.",
     description:
       "Phần ren kim loại được tiện CNC từ đồng thau chuyên dụng nguyên khối, có thiết kế các gờ chống xoay và rãnh gioăng cao su chịu nhiệt, đảm bảo không bị xoay trượt ren hoặc rò rỉ khi vặn xiết lực lớn.",
-    image: "https://stroman.vn/Upload/products/Phu-kien-PPR134248428464118182.png",
+    image: "/images/products/Stroman_Phu_kien_PP-R.png",
     features: [
       "Đồng thau đúc chất lượng cao, không chì, không nhiễm kim loại nặng",
       "Khắc hoa văn chống trượt và chống xoay khi hàn nhiệt",
