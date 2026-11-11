@@ -6,4 +6,4 @@
 - [x] T004 Xây dựng `src/app/tin-tuc/[slug]/page.tsx` (SEO Metadata, JSON-LD `Article`, Mục lục, CTA, Bài liên quan) và cập nhật `src/app/tin-tuc/page.tsx` + `src/app/page.tsx`.
 - [x] T005 Bổ sung `src/app/sitemap.ts` và `src/app/robots.ts`.
 - [x] T006 Phủ nội dung 12 bài viết chuẩn SEO (Gói B) vào `src/data/news.ts` và đồng bộ lên bảng `news_articles` trên Supabase.
-- [ ] T007 Chạy `tsc --noEmit`, `npm run build`, push GitHub, deploy Vercel và kiểm thử live cả Desktop & Mobile.
+- [x] T007 Chạy `tsc --noEmit`, `npm run build`, push GitHub, deploy Vercel và kiểm thử live cả Desktop & Mobile.
