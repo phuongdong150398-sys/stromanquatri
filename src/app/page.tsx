@@ -8,9 +8,13 @@ import { StandardsSection } from "@/components/home/StandardsSection";
 import { ApplicationGrid } from "@/components/home/ApplicationGrid";
 import { DistributionPreview } from "@/components/home/DistributionPreview";
 import { BottomCtaSection } from "@/components/home/BottomCtaSection";
-import { newsData } from "@/data/news";
+import { getPublishedNewsArticles, isNewsContainImage } from "@/lib/news-repository";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  const latestNews = (await getPublishedNewsArticles()).slice(0, 3);
+
   return (
     <div className="flex flex-col">
       {/* 1. HERO SECTION */}
@@ -32,9 +36,9 @@ export default function HomePage() {
       <DistributionPreview />
 
       {/* 7. NEWS & CASE STUDIES TEASER */}
-      <section className="py-16 sm:py-20 bg-[#F6F9FB] border-t border-slate-200/70">
+      <section className="py-10 sm:py-20 bg-[#F6F9FB] border-t border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 sm:mb-12">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 sm:gap-4 mb-6 sm:mb-12">
             <div>
               <div className="flex items-center gap-3">
                 <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
@@ -50,24 +54,25 @@ export default function HomePage() {
 
             <Link
               href="/tin-tuc"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
+              className="inline-flex items-center gap-1.5 min-h-[40px] text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
             >
               <span>Xem tất cả bài viết</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {newsData.map((item) => {
-              const isGraphic = item.image.endsWith(".png");
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {latestNews.map((item) => {
+              const isGraphic = isNewsContainImage(item.image);
               return (
                 <div
                   key={item.id}
                   className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    <div
-                      className={`relative h-48 overflow-hidden ${
+                    <Link
+                      href={`/tin-tuc/${item.slug}`}
+                      className={`block relative h-48 overflow-hidden ${
                         isGraphic ? "bg-white p-4 border-b border-slate-100" : "bg-slate-100"
                       }`}
                     >
@@ -79,10 +84,10 @@ export default function HomePage() {
                         }`}
                         loading="lazy"
                       />
-                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold text-white bg-[#061B33]/85 backdrop-blur-xs">
+                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-xs font-bold text-white bg-[#061B33]/85 backdrop-blur-xs">
                         {item.category}
                       </span>
-                    </div>
+                    </Link>
 
                     <div className="p-5">
                       <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-2">
@@ -91,7 +96,7 @@ export default function HomePage() {
                       </div>
 
                       <h3 className="text-sm font-bold text-[#102035] group-hover:text-[#007A4D] transition-colors line-clamp-2 leading-snug">
-                        <Link href="/tin-tuc">{item.title}</Link>
+                        <Link href={`/tin-tuc/${item.slug}`}>{item.title}</Link>
                       </h3>
 
                       <p className="mt-2 text-xs text-slate-600 line-clamp-2 leading-relaxed">
@@ -100,10 +105,10 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="p-5 pt-0">
+                  <div className="px-5 pb-5 pt-0">
                     <Link
-                      href="/tin-tuc"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#007A4D] group-hover:text-[#005f3b]"
+                      href={`/tin-tuc/${item.slug}`}
+                      className="inline-flex items-center gap-1 min-h-[38px] text-xs font-bold text-[#007A4D] group-hover:text-[#005f3b]"
                     >
                       <span>Đọc tiếp</span>
                       <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
