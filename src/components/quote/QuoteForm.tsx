@@ -25,6 +25,7 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const provinces = [
@@ -41,15 +42,18 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
     "Quảng Ninh",
     "Thanh Hóa",
     "Nghệ An",
+    "Quảng Trị",
+    "Quảng Bình",
     "Khác",
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setSubmitError(null);
 
     if (items.length === 0) {
-      alert("Vui lòng thêm ít nhất một sản phẩm vào bảng dự toán trước khi gửi yêu cầu.");
+      setSubmitError("Vui lòng thêm ít nhất một sản phẩm vào bảng dự toán trước khi gửi yêu cầu.");
       return;
     }
 
@@ -67,13 +71,27 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
     }
 
     setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ customer: result.data, items }),
+      });
 
-    // Simulate backend submission
-    setTimeout(() => {
+      const payload = await response.json();
+      if (!response.ok) {
+        setSubmitError(
+          payload?.error || "Không thể gửi yêu cầu lúc này. Vui lòng gọi Hotline 0915 333 808."
+        );
+        return;
+      }
+
+      onSuccess(payload.quoteCode, result.data);
+    } catch {
+      setSubmitError("Lỗi kết nối máy chủ. Vui lòng thử lại hoặc liên hệ Hotline.");
+    } finally {
       setIsSubmitting(false);
-      const generatedCode = `STR-Q-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
-      onSuccess(generatedCode, form);
-    }, 1000);
+    }
   };
 
   return (
@@ -208,6 +226,13 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
             className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs"
           ></textarea>
         </div>
+
+        {submitError && (
+          <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0" />
+            <span>{submitError}</span>
+          </div>
+        )}
 
         <button
           type="submit"

@@ -13,23 +13,22 @@ import { siteConfig } from "@/config/site";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+    <footer className="bg-[#061B33] text-slate-300 pt-14 pb-8 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* CỘT 1: THƯƠNG HIỆU */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-stroman-600 flex items-center justify-center text-white font-black text-xl shadow-md">
-                S
+            <div className="flex flex-col items-start gap-2">
+              <div className="inline-flex items-center bg-white rounded-xl px-3.5 py-2 shadow-xs">
+                <img
+                  src={siteConfig.logo}
+                  alt={siteConfig.brandName}
+                  className="h-6 w-auto object-contain"
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black text-white uppercase tracking-tight">
-                  STROMAN
-                </span>
-                <span className="text-[11px] font-medium text-emerald-400 tracking-wider uppercase">
-                  Tập Đoàn Tân Á Đại Thành
-                </span>
-              </div>
+              <span className="text-[11px] font-semibold text-emerald-400 tracking-wider uppercase">
+                Tập Đoàn Tân Á Đại Thành
+              </span>
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">

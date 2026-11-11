@@ -22,6 +22,14 @@ const config: Config = {
           900: "#003923",
           950: "#002013",
         },
+        corporate: {
+          navy: "#061B33",
+          deep: "#082B4A",
+          green: "#007A4D",
+          emerald: "#00C389",
+          light: "#F6F9FB",
+          ink: "#102035",
+        },
         steel: {
           50: "#f8fafc",
           100: "#f1f5f9",
@@ -36,8 +44,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-roboto)", "Roboto", "system-ui", "-apple-system", "sans-serif"],
-        heading: ["var(--font-lato)", "Lato", "var(--font-roboto)", "Roboto", "sans-serif"],
+        sans: ['"Roboto"', '"Segoe UI"', "system-ui", "-apple-system", "sans-serif"],
+        heading: ['"Lato"', '"Roboto"', '"Segoe UI"', "system-ui", "sans-serif"],
       },
     },
   },

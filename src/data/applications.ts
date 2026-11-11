@@ -15,7 +15,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "cap-thoat-nuoc",
     title: "Cấp Thoát Nước Đô Thị",
     subtitle: "Hạ tầng bền vững cho khu đô thị & thành phố",
-    image: "https://stroman.vn/Upload/news/Cap-thoat-nuoc.jpg",
+    image: "/images/applications/cap-thoat-nuoc.jpg",
     description:
       "Ống nhựa Stroman cung cấp giải pháp trọn gói từ đường ống truyền tải nước sạch áp lực lớn đến hệ thống thu gom thoát nước mưa và nước thải cho các khu đô thị mới, chống rò rỉ và sụt lún.",
     recommendedPipes: ["Ống HDPE PE100 (Ø90 - Ø1200)", "Ống uPVC Hệ Met (Ø110 - Ø400)"],
@@ -30,7 +30,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "thuy-loi-nong-nghiep",
     title: "Thủy Lợi & Nông Nghiệp",
     subtitle: "Tưới tiêu tự động & nông nghiệp công nghệ cao",
-    image: "https://stroman.vn/Upload/news/Thuy-loi-nong-nghiep.png",
+    image: "/images/applications/thuy-loi-nong-nghiep.png",
     description:
       "Tối ưu hóa nguồn nước tưới cho trang trại hoa quả, cao su, cà phê và nuôi trồng thủy sản. Kháng phân bón, thuốc bảo vệ thực vật và chịu được bức xạ mặt trời gay gắt.",
     recommendedPipes: ["Ống HDPE cuộn (Ø20 - Ø90)", "Ống uPVC thoát nước"],
@@ -45,7 +45,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "dan-dung",
     title: "Xây Dựng Dân Dụng",
     subtitle: "Hệ thống cấp nước nóng lạnh & thoát sàn biệt thự, chung cư",
-    image: "https://stroman.vn/Upload/news/Dan-dung.png",
+    image: "/images/applications/dan-dung.png",
     description:
       "Từ nhà phố đến các tòa nhà chọc trời, ống PP-R và uPVC Stroman đảm bảo lưu thông nước êm ái, cách âm vượt trội, không bao giờ lo rỉ sét hay thẩm thấu vào tường nhà.",
     recommendedPipes: ["Ống PP-R Chịu Nhiệt", "Ống PP-R Kháng Khuẩn", "Ống uPVC Thoát Nước"],
@@ -60,7 +60,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "xay-dung-ha-tang",
     title: "Xây Dựng Hạ Tầng KCN",
     subtitle: "Đường ống ngầm hạ tầng kỹ thuật & nhà máy",
-    image: "https://stroman.vn/Upload/news/Xay-dung.png",
+    image: "/images/applications/xay-dung.png",
     description:
       "Hệ thống cấp nước cứu hỏa PCCC, xử lý nước thải công nghiệp và luồn cáp quang viễn thông trong các khu công nghiệp trọng điểm trên cả nước.",
     recommendedPipes: ["Ống HDPE PE100 PN16", "Ống uPVC nong gioăng"],
@@ -74,7 +74,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "khai-khoang",
     title: "Khai Khoáng & Bơm Bùn",
     subtitle: "Dẫn quặng mỏ, than bùn & nước biển ngập mặn",
-    image: "https://stroman.vn/Upload/news/Khai-khoang.png",
+    image: "/images/applications/khai-khoang.png",
     description:
       "Chịu mài mòn từ cát quặng và nước chua phèn ở các mỏ khoáng sản và công trình ven biển đảo.",
     recommendedPipes: ["Ống HDPE thành dày SDR11", "Ống HDPE áp lực cao"],
@@ -88,7 +88,7 @@ export const applicationsData: ApplicationItem[] = [
     slug: "cong-nghiep-nhe",
     title: "Công Nghiệp Nhẹ & Thực Phẩm",
     subtitle: "Vận chuyển dung dịch tinh khiết & khí nén",
-    image: "https://stroman.vn/Upload/news/Cong-nghiep-nhe.png",
+    image: "/images/applications/cong-nghiep-nhe.png",
     description:
       "Ống nhựa kháng khuẩn chuyên dụng cho các nhà máy chế biến thực phẩm, dược phẩm và dây chuyền đóng chai nước giải khát.",
     recommendedPipes: ["Ống PP-R Kháng Khuẩn Nano Silver"],

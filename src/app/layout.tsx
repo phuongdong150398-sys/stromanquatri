@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { FloatingContact } from "@/components/layout/FloatingContact";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { QuoteProvider } from "@/context/QuoteContext";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: `${siteConfig.brandName} - ${siteConfig.distributorName}`,
     template: `%s | ${siteConfig.brandName}`,
@@ -34,9 +33,9 @@ export const metadata: Metadata = {
     siteName: siteConfig.brandName,
     images: [
       {
-        url: "https://stroman.vn/Upload/banner/20261453-145336-banner-web-strm-(1).jpg",
-        width: 1200,
-        height: 630,
+        url: "/images/hero-banner.png",
+        width: 1024,
+        height: 576,
         alt: "Ống nhựa Stroman - Công nghệ Đức",
       },
     ],
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.brandName} - ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: ["https://stroman.vn/Upload/banner/20261453-145336-banner-web-strm-(1).jpg"],
+    images: ["/images/hero-banner.png"],
   },
 };
 
@@ -60,7 +59,7 @@ export default function RootLayout({
     name: siteConfig.brandName,
     alternateName: siteConfig.distributorName,
     url: siteConfig.url,
-    logo: "https://stroman.vn/images/logo-meta.png",
+    logo: `${siteConfig.url}${siteConfig.logo}`,
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+84-915-333-808",
@@ -98,10 +97,7 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="min-h-screen flex flex-col antialiased font-sans">
         <QuoteProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingContact />
+          <SiteShell>{children}</SiteShell>
         </QuoteProvider>
       </body>
     </html>

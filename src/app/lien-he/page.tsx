@@ -15,11 +15,14 @@ export default function ContactPage() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setSubmitError(null);
 
     const result = contactFormSchema.safeParse(form);
     if (!result.success) {
@@ -33,7 +36,24 @@ export default function ContactPage() {
       return;
     }
 
-    setIsSent(true);
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      const payload = await res.json();
+      if (!res.ok) {
+        setSubmitError(payload?.error || "Không thể gửi tin nhắn lúc này. Vui lòng gọi Hotline.");
+        return;
+      }
+      setIsSent(true);
+    } catch {
+      setSubmitError("Lỗi kết nối máy chủ. Vui lòng thử lại sau.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -243,12 +263,19 @@ export default function ContactPage() {
                     )}
                   </div>
 
+                  {submitError && (
+                    <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 disabled:opacity-60 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Gửi Tin Nhắn Cho Phòng Dự Án</span>
+                    <span>{isSubmitting ? "Đang gửi tin nhắn..." : "Gửi Tin Nhắn Cho Phòng Dự Án"}</span>
                   </button>
                 </form>
               </div>

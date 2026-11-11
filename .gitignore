@@ -22,6 +22,7 @@ build/
 out/
 .turbo/
 *.tsbuildinfo
+.vercel
 
 # IDE & OS
 .DS_Store

@@ -25,16 +25,16 @@ export function FloatingContact() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 floating-actions">
+    <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end gap-3 floating-actions">
       {/* 1. SMART QUOTE FLOATING BADGE */}
       <Link
         href="/du-toan-bao-gia"
-        className="group flex items-center gap-2 bg-slate-900 text-white pl-4 pr-3 py-2.5 rounded-full shadow-xl hover:bg-slate-800 transition-all border border-slate-700"
+        className="group flex items-center gap-2 bg-[#061B33] text-white pl-3.5 pr-3 py-2.5 rounded-full shadow-xl hover:bg-[#082B4A] transition-all border border-white/15"
       >
-        <FileSpreadsheet className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+        <FileSpreadsheet className="w-4 h-4 text-[#00C389] group-hover:scale-110 transition-transform" />
         <span className="text-xs font-bold">Dự toán vật tư</span>
         {mounted && totalCount > 0 && (
-          <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-950 text-[11px] font-black flex items-center justify-center animate-bounce">
+          <span className="w-5 h-5 rounded-full bg-amber-400 text-[#061B33] text-[11px] font-black flex items-center justify-center">
             {totalCount}
           </span>
         )}
@@ -46,19 +46,18 @@ export function FloatingContact() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat qua Zalo"
-        className="w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
+        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
       >
-        <MessageCircle className="w-6 h-6" />
+        <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
       </a>
 
-      {/* 3. PHONE PULSE BUTTON */}
+      {/* 3. PHONE BUTTON */}
       <a
         href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
         aria-label="Gọi hotline tư vấn"
-        className="relative w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all hover:scale-105"
+        className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#007A4D] hover:bg-[#00613d] text-white flex items-center justify-center shadow-lg hover:shadow-xl ring-4 ring-emerald-500/20 transition-all hover:scale-105"
       >
-        <span className="absolute -inset-1 rounded-full bg-emerald-500 opacity-40 animate-ping"></span>
-        <Phone className="w-6 h-6 relative z-10" />
+        <Phone className="w-5 h-5 sm:w-6 sm:h-6 relative z-10" />
       </a>
 
       {/* 4. SCROLL TO TOP */}

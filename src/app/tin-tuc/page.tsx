@@ -32,11 +32,11 @@ export default function NewsPage() {
               className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="relative h-52 overflow-hidden bg-slate-100">
+                <div className={`relative h-52 overflow-hidden ${item.image.endsWith(".png") ? "bg-white p-4 border-b border-slate-100" : "bg-slate-100"}`}>
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ${item.image.endsWith(".png") ? "object-contain" : "object-cover"}`}
                   />
                   <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-slate-950/80 backdrop-blur-sm">
                     {item.category}

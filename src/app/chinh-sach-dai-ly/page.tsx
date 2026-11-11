@@ -28,12 +28,14 @@ export default function DealerPolicyPage() {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+    setSubmitError(null);
 
     const result = dealerRegisterSchema.safeParse(form);
     if (!result.success) {
@@ -48,10 +50,25 @@ export default function DealerPolicyPage() {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/dealers/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      const payload = await res.json();
+      if (!res.ok) {
+        setSubmitError(
+          payload?.error || "Không thể gửi hồ sơ lúc này. Vui lòng gọi Hotline."
+        );
+        return;
+      }
       setIsSubmitted(true);
-    }, 1000);
+    } catch {
+      setSubmitError("Lỗi kết nối máy chủ. Vui lòng thử lại sau.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -264,6 +281,12 @@ export default function DealerPolicyPage() {
                     className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
                   ></textarea>
                 </div>
+
+                {submitError && (
+                  <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                    {submitError}
+                  </div>
+                )}
 
                 <button
                   type="submit"

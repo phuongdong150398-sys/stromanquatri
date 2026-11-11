@@ -1,74 +1,111 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck } from "lucide-react";
-import { categoriesMeta } from "@/data/products";
+import { ArrowRight } from "lucide-react";
+
+interface ShowcaseCategory {
+  id: string;
+  name: string;
+  image: string;
+  href: string;
+}
+
+const showcaseCategories: ShowcaseCategory[] = [
+  {
+    id: "ppr",
+    name: "Ống nhựa PP-R",
+    image: "/images/products/Stroman_Ong_nhua_PP-R.png",
+    href: "/san-pham?category=ppr",
+  },
+  {
+    id: "hdpe",
+    name: "Ống nhựa HDPE",
+    image: "/images/products/Stroman_Ong_nhua_HDPE.png",
+    href: "/san-pham?category=hdpe",
+  },
+  {
+    id: "upvc",
+    name: "Ống nhựa uPVC",
+    image: "/images/products/02_uPVC_PNG_KHONG_CHU.png",
+    href: "/san-pham?category=upvc",
+  },
+  {
+    id: "fittings-ppr",
+    name: "Phụ kiện PP-R",
+    image: "/images/products/Stroman_Phu_kien_PP-R.png",
+    href: "/san-pham?category=fittings",
+  },
+  {
+    id: "fittings-hdpe",
+    name: "Phụ kiện HDPE",
+    image: "/images/products/Stroman_Phu_kien_HDPE.png",
+    href: "/san-pham?category=hdpe",
+  },
+  {
+    id: "fittings-upvc",
+    name: "Phụ kiện uPVC",
+    image: "/images/products/Stroman_Phu_kien_uPVC.png",
+    href: "/san-pham?category=fittings",
+  },
+];
 
 export function CategoryShowcase() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section title */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-12">
+        {/* Section Heading matching mockup */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8 sm:mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-xs text-stroman-600 font-bold uppercase tracking-wider mb-2">
-              <ShieldCheck className="w-4 h-4" />
-              <span>Dây Chuyền Đồng Bộ CHLB Đức</span>
+            <div className="flex items-center gap-3">
+              <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
+              <h2 className="text-2xl sm:text-3xl font-black text-[#102035] tracking-tight">
+                Danh mục sản phẩm
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              4 Dòng Sản Phẩm Ống Nhựa Chủ Lực
-            </h2>
-            <p className="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
-              Đáp ứng trọn vẹn mọi yêu cầu thiết kế khắt khe nhất của các dự án cấp thoát nước, hạ tầng đô thị và công trình dân dụng cao cấp.
+            <p className="mt-1.5 text-sm text-slate-600 pl-10">
+              Hệ sinh thái sản phẩm ống nhựa và phụ kiện đồng bộ Stroman
             </p>
           </div>
 
           <Link
             href="/san-pham"
-            className="inline-flex items-center gap-2 text-sm font-bold text-stroman-600 hover:text-stroman-700 transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
           >
-            <span>Xem toàn bộ danh mục sản phẩm</span>
+            <span>Xem tất cả sản phẩm</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categoriesMeta.slice(0, 4).map((cat) => (
-            <div
+        {/* 6 Categories Grid: Desktop 6/row, Tablet 3/row, Mobile 2/row */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+          {showcaseCategories.map((cat) => (
+            <Link
               key={cat.id}
-              className="group bg-slate-50 hover:bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
+              href={cat.href}
+              className="group h-full bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md hover:-translate-y-1 hover:border-[#007A4D]/40 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
-              <div>
-                {/* Category Image Box */}
-                <div className="relative h-44 bg-white rounded-2xl flex items-center justify-center p-4 mb-5 border border-slate-100 group-hover:border-stroman-200 transition-colors">
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="max-h-36 w-auto object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
-                  />
-                </div>
+              {/* Clean Image Stage */}
+              <div className="h-36 sm:h-40 bg-[#F6F9FB] p-3 flex items-center justify-center overflow-hidden">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
 
-                <div className="text-[11px] font-bold text-stroman-600 uppercase tracking-wider mb-1">
-                  {cat.tagline}
-                </div>
-
-                <h3 className="text-lg font-black text-slate-900 group-hover:text-stroman-600 transition-colors">
-                  <Link href={`/san-pham?category=${cat.id}`}>{cat.name}</Link>
+              {/* Card Title + Detail Arrow Button */}
+              <div className="p-3.5 sm:p-4 bg-white border-t border-slate-100 flex items-center justify-between gap-2">
+                <h3 className="text-xs sm:text-[13px] font-bold text-[#102035] group-hover:text-[#007A4D] transition-colors leading-snug">
+                  {cat.name}
                 </h3>
-
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed line-clamp-3">
-                  {cat.description}
-                </p>
-              </div>
-
-              {/* Action */}
-              <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-slate-800 group-hover:text-stroman-600">
-                <span>Tra cứu quy cách</span>
-                <div className="w-7 h-7 rounded-full bg-slate-200 group-hover:bg-stroman-600 group-hover:text-white flex items-center justify-center transition-colors">
+                <span
+                  aria-hidden="true"
+                  className="w-7 h-7 rounded-full bg-emerald-50 text-[#007A4D] group-hover:bg-[#007A4D] group-hover:text-white flex items-center justify-center shrink-0 transition-colors"
+                >
                   <ArrowRight className="w-3.5 h-3.5" />
-                </div>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,83 +1,85 @@
 import React from "react";
 import {
   Cpu,
-  Layers,
-  Sparkles,
-  ShieldCheck,
   Award,
+  Layers,
   Leaf,
+  ShieldCheck,
 } from "lucide-react";
 
-export function TechnicalFeatures() {
-  const features = [
-    {
-      icon: Cpu,
-      title: "Công Nghệ Đùn Tự Động Từ Đức",
-      desc: "Hệ thống máy móc tân tiến nhất thế giới của Krauss Maffei & Battenfeld-Cincinnati giúp kiểm soát độ dày và đồng nhất nhiệt độ chính xác tới từng micromet.",
-    },
-    {
-      icon: Layers,
-      title: "100% Hạt Nhựa Nguyên Sinh",
-      desc: "Nguyên liệu nhập khẩu trực tiếp từ các tập đoàn hóa chất hàng đầu như Borealis, LyondellBasell, Sabic. Tuyệt đối không sử dụng nhựa tái chế hay chì độc hại.",
-    },
-    {
-      icon: Sparkles,
-      title: "Đột Phá Kháng Khuẩn Nano Bạc",
-      desc: "Dòng ống PP-R kháng khuẩn 3 lớp độc quyền triệt tiêu 99.9% vi khuẩn, nấm mốc và rêu bám, cung cấp nguồn nước vô trùng an toàn uống trực tiếp.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Hệ Thống Đo Laser & Siêu Âm",
-      desc: "100% thành phẩm được quét kiểm tra độ dày và khuyết tật bằng sóng siêu âm ngay trên dây chuyền, loại bỏ hoàn toàn sản phẩm lỗi trước khi xuất xưởng.",
-    },
-    {
-      icon: Award,
-      title: "Tiêu Chuẩn Quốc Tế Khắt Khe",
-      desc: "Đạt chuẩn DIN 8077/8078 (Đức), ISO 1452, ISO 4427, TCVN 8491 cùng chứng nhận an toàn thực phẩm vệ sinh nguồn nước từ Viện Pasteur.",
-    },
-    {
-      icon: Leaf,
-      title: "Bền Vững & Thân Thiện Môi Trường",
-      desc: "Tuổi thọ vượt 50 năm, hệ số ma sát thành ống siêu thấp giảm tiêu hao năng lượng máy bơm, tái chế 100% sau vòng đời sử dụng.",
-    },
-  ];
+const advantages = [
+  {
+    icon: Cpu,
+    title: "Công nghệ Đức",
+    desc: "Dây chuyền đùn tự động Krauss Maffei & Battenfeld-Cincinnati nhập khẩu từ CHLB Đức.",
+  },
+  {
+    icon: Award,
+    title: "Chất lượng cao",
+    desc: "100% hạt nhựa nguyên sinh từ Borealis, LyondellBasell; kiểm định độ dày bằng siêu âm.",
+  },
+  {
+    icon: Layers,
+    title: "Giải pháp đa dạng",
+    desc: "Đáp ứng đồng bộ từ hệ uPVC, PP-R chịu nhiệt, PP-R kháng khuẩn đến HDPE PE100 cỡ lớn.",
+  },
+  {
+    icon: Leaf,
+    title: "An toàn và thân thiện",
+    desc: "Không chứa chì và kim loại nặng, an toàn cho nguồn nước uống, tái chế 100%.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Bảo hành lâu dài",
+    desc: "Bảo hành chính hãng tới 10 năm từ Tập đoàn Tân Á Đại Thành, tuổi thọ thiết kế vượt 50 năm.",
+  },
+];
 
+export function TechnicalFeatures() {
   return (
-    <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold tracking-wider uppercase mb-3">
-            <Award className="w-4 h-4" />
-            <span>Tiêu Chuẩn Kỹ Thuật Quốc Tế</span>
+    <section className="py-16 sm:py-20 bg-[#F6F9FB] border-y border-slate-200/70">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
+              <span className="text-xs font-extrabold text-[#007A4D] uppercase tracking-widest">
+                Giá trị cốt lõi
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-[#102035] tracking-tight mt-2">
+              Vì sao chọn STROMAN?
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-            Vì Sao Nhà Thầu & Đại Lý Chọn Nhựa Stroman?
-          </h2>
-          <p className="mt-3 text-sm text-slate-400 leading-relaxed">
-            Nhờ khoản đầu tư 70 triệu USD vào nhà máy hiện đại bậc nhất Đông Nam Á, Stroman thiết lập chuẩn mực mới về chất lượng ống dẫn nước tại Việt Nam.
+          <p className="text-sm text-slate-600 max-w-xl leading-relaxed">
+            Đầu tư bài bản 70 triệu USD vào hệ thống nhà máy tự động hóa hàng đầu, thiết lập chuẩn mực bền vững cho mọi hạ tầng cấp thoát nước.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-slate-800/60 rounded-2xl p-6 border border-slate-700/60 hover:border-emerald-500/50 hover:bg-slate-800 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
-                  <Icon className="w-6 h-6" />
+        {/* Clean Unified Horizontal Container (No scattered boxy clutter) */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+            {advantages.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 hover:bg-[#F6F9FB]/70 transition-colors duration-200 group flex flex-col items-start"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-[#007A4D]/15 text-[#007A4D] flex items-center justify-center mb-4 group-hover:bg-[#007A4D] group-hover:text-white transition-colors duration-200">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-[#102035] mb-2 group-hover:text-[#007A4D] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-base font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

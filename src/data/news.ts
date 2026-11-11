@@ -18,7 +18,7 @@ export const newsData: NewsArticle[] = [
       "Tập đoàn Tân Á Đại Thành cùng thương hiệu nhựa Stroman vừa ký kết bàn giao hơn 50.000m ống HDPE PE100 cho dự án chống hạn mặn khu vực ĐBSCL.",
     category: "Dự Án",
     date: "28/10/2026",
-    image: "https://stroman.vn/Upload/news/Cap-thoat-nuoc.jpg",
+    image: "/images/applications/cap-thoat-nuoc.jpg",
     content: [
       "Nhựa Stroman tự hào là đơn vị được lựa chọn cung cấp ống nhựa HDPE đường kính lớn Ø400 - Ø800 cho tuyến ống dẫn nước ngọt cấp bách vượt sông Tiền và sông Hậu.",
       "Sản phẩm được sản xuất trực tiếp tại Nhà máy Stroman Long An, đáp ứng tiến độ thần tốc và tiêu chuẩn kỹ thuật kiểm định khắt khe của Bộ Nông Nghiệp & PTNT.",
@@ -46,7 +46,7 @@ export const newsData: NewsArticle[] = [
       "Chương trình đồng hành cùng đại lý: Chiết khấu lên tới 35%, hỗ trợ chi phí làm biển quảng cáo showroom và bảo hiểm vận chuyển hàng tận chân công trình.",
     category: "Chính Sách",
     date: "02/10/2026",
-    image: "https://stroman.vn/Upload/Banner/20261424-142412-he-thong-phan-phoi.png",
+    image: "/images/news/he-thong-phan-phoi.png",
     content: [
       "Nhằm mở rộng mạng lưới phân phối tại các tỉnh thành trọng điểm, Stroman ban hành gói chính sách hỗ trợ tài chính linh hoạt, bảo lãnh công nợ và thưởng doanh số theo quý cho các đại lý cấp 1 và cấp 2 trên toàn quốc.",
     ],
