@@ -159,22 +159,22 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT: INQUIRY FORM */}
-          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+          <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-5 sm:p-10 shadow-sm">
             {isSent ? (
-              <div className="text-center py-12">
+              <div className="text-center py-10 sm:py-12">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
                   Cảm Ơn Bạn Đã Liên Hệ!
                 </h3>
-                <p className="text-xs text-slate-600 max-w-md mx-auto mb-6">
-                  Thông điệp của bạn đã được chuyển đến bộ phận phụ trách kỹ thuật & bán hàng. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-6">
+                  Thông điệp của bạn đã được chuyển đến bộ phận phụ trách kỹ thuật &amp; bán hàng. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.
                 </p>
                 <button
                   type="button"
                   onClick={() => setIsSent(false)}
-                  className="px-6 py-2.5 rounded-xl bg-stroman-600 text-white font-bold text-xs hover:bg-stroman-700 transition-colors"
+                  className="min-h-[44px] px-6 py-2.5 rounded-xl bg-stroman-600 text-white font-bold text-xs hover:bg-stroman-700 transition-colors"
                 >
                   Gửi tin nhắn khác
                 </button>
@@ -182,7 +182,7 @@ export default function ContactPage() {
             ) : (
               <div>
                 <h2 className="text-xl font-bold text-slate-900 mb-1">
-                  Gửi Yêu Cầu Tư Vấn & Báo Giá Trực Tiếp
+                  Gửi Yêu Cầu Tư Vấn &amp; Báo Giá Trực Tiếp
                 </h2>
                 <p className="text-xs text-slate-500 mb-6">
                   Điền vào biểu mẫu dưới đây, chuyên viên tư vấn sẽ liên hệ lại với bạn.
@@ -191,7 +191,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
+                      <label className="block font-bold text-slate-700 mb-1.5">
                         Họ và tên <span className="text-rose-500">*</span>
                       </label>
                       <input
@@ -199,15 +199,15 @@ export default function ContactPage() {
                         placeholder="Nguyễn Văn A"
                         value={form.fullName}
                         onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                       />
                       {errors.fullName && (
-                        <p className="text-rose-500 text-[11px] mt-1">{errors.fullName}</p>
+                        <p className="text-rose-500 text-xs mt-1">{errors.fullName}</p>
                       )}
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">
+                      <label className="block font-bold text-slate-700 mb-1.5">
                         Số điện thoại <span className="text-rose-500">*</span>
                       </label>
                       <input
@@ -215,40 +215,40 @@ export default function ContactPage() {
                         placeholder="0912 345 678"
                         value={form.phone}
                         onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                       />
                       {errors.phone && (
-                        <p className="text-rose-500 text-[11px] mt-1">{errors.phone}</p>
+                        <p className="text-rose-500 text-xs mt-1">{errors.phone}</p>
                       )}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Địa chỉ Email</label>
+                      <label className="block font-bold text-slate-700 mb-1.5">Địa chỉ Email</label>
                       <input
                         type="email"
                         placeholder="email@congty.com"
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                       />
                     </div>
 
                     <div>
-                      <label className="block font-bold text-slate-700 mb-1">Tiêu đề yêu cầu</label>
+                      <label className="block font-bold text-slate-700 mb-1.5">Tiêu đề yêu cầu</label>
                       <input
                         type="text"
                         placeholder="Tư vấn báo giá dự án / Catalog..."
                         value={form.subject}
                         onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                        className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Nội dung tin nhắn <span className="text-rose-500">*</span>
                     </label>
                     <textarea
@@ -256,10 +256,10 @@ export default function ContactPage() {
                       placeholder="Chi tiết câu hỏi hoặc danh sách quy cách bạn cần tư vấn..."
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     ></textarea>
                     {errors.message && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.message}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.message}</p>
                     )}
                   </div>
 
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 disabled:opacity-60 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+                    className="w-full min-h-[48px] py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 disabled:opacity-60 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
                     <span>{isSubmitting ? "Đang gửi tin nhắn..." : "Gửi Tin Nhắn Cho Phòng Dự Án"}</span>

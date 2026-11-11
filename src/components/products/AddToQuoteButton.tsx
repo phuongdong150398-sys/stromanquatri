@@ -82,12 +82,13 @@ export function AddToQuoteButton({
   }
 
   return (
-    <div className="flex items-center gap-3">
-      <div className="flex items-center border border-slate-300 rounded-lg overflow-hidden">
+    <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2.5 w-full">
+      <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden bg-white">
         <button
           type="button"
           onClick={() => setQuantity(Math.max(1, quantity - 5))}
-          className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold"
+          aria-label="Giảm số lượng"
+          className="min-w-[40px] min-h-[42px] bg-slate-100 hover:bg-slate-200 text-slate-700 text-base font-bold flex items-center justify-center"
         >
           -
         </button>
@@ -96,12 +97,13 @@ export function AddToQuoteButton({
           min="1"
           value={quantity}
           onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-          className="w-16 py-1.5 text-center text-sm font-bold text-slate-800 focus:outline-none"
+          className="w-14 min-h-[42px] text-center text-sm font-bold text-slate-800 focus:outline-none"
         />
         <button
           type="button"
           onClick={() => setQuantity(quantity + 5)}
-          className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold"
+          aria-label="Tăng số lượng"
+          className="min-w-[40px] min-h-[42px] bg-slate-100 hover:bg-slate-200 text-slate-700 text-base font-bold flex items-center justify-center"
         >
           +
         </button>
@@ -111,7 +113,7 @@ export function AddToQuoteButton({
         type="button"
         onClick={handleAdd}
         disabled={isAdded}
-        className={`px-4 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all ${
+        className={`flex-1 min-h-[42px] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all whitespace-nowrap ${
           isAdded
             ? "bg-emerald-600 text-white shadow"
             : "bg-stroman-600 hover:bg-stroman-700 text-white shadow hover:shadow-md"
@@ -119,13 +121,13 @@ export function AddToQuoteButton({
       >
         {isAdded ? (
           <>
-            <Check className="w-4 h-4" />
-            <span>Đã thêm vào dự toán!</span>
+            <Check className="w-4 h-4 shrink-0" />
+            <span>Đã thêm!</span>
           </>
         ) : (
           <>
-            <FileSpreadsheet className="w-4 h-4 text-emerald-200" />
-            <span>Thêm vào Bảng dự toán</span>
+            <FileSpreadsheet className="w-4 h-4 text-emerald-200 shrink-0" />
+            <span>Thêm vào dự toán</span>
           </>
         )}
       </button>

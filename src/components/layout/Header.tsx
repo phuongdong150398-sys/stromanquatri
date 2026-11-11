@@ -39,12 +39,13 @@ export function Header() {
       }`}
     >
       {/* 1. TOP BAR — Deep Brand Green (#00683C) */}
-      <div className="bg-[#00683C] text-white text-xs py-2 border-b border-[#005732]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-1.5 sm:gap-4">
-          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap justify-center sm:justify-start">
-            <span className="inline-flex items-center gap-1.5 font-medium text-emerald-50">
+      <div className="bg-[#00683C] text-white text-xs py-1.5 sm:py-2 border-b border-[#005732]">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+            <span className="inline-flex items-center gap-1.5 font-medium text-emerald-50 truncate">
               <ShieldCheck className="w-3.5 h-3.5 text-[#00C389] shrink-0" />
-              <span>Ống nhựa cao cấp Stroman</span>
+              <span className="sm:hidden text-xs">Công nghệ Đức</span>
+              <span className="hidden sm:inline">Ống nhựa cao cấp Stroman</span>
             </span>
             <span className="hidden md:inline text-emerald-300/50">|</span>
             <span className="hidden md:inline text-emerald-50/90">Công nghệ CHLB Đức</span>
@@ -54,13 +55,13 @@ export function Header() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
+          <div className="flex items-center gap-4 text-xs shrink-0">
             <a
               href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
-              className="inline-flex items-center gap-1.5 text-emerald-50 hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-emerald-50 hover:text-white transition-colors py-0.5"
             >
               <Phone className="w-3.5 h-3.5 text-[#00C389] shrink-0" />
-              <span>Hotline:</span>
+              <span className="hidden sm:inline">Hotline:</span>
               <strong className="font-bold text-white tracking-wide">{siteConfig.hotline}</strong>
             </a>
             <span className="hidden md:inline text-emerald-300/40">|</span>
@@ -76,15 +77,15 @@ export function Header() {
       </div>
 
       {/* 2. MAIN NAVIGATION BAR */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-[72px] flex justify-between items-center gap-3">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-[72px] flex justify-between items-center gap-3">
         {/* BRAND LOGO */}
-        <Link href="/" className="flex flex-col items-start group shrink-0">
+        <Link href="/" className="flex flex-col items-start group shrink-0 py-1">
           <img
             src={siteConfig.logo}
             alt={siteConfig.brandName}
             className="h-6 sm:h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
           />
-          <span className="text-[8px] sm:text-[9.5px] font-bold text-[#00683C] tracking-wide sm:tracking-wider uppercase mt-1 leading-none">
+          <span className="hidden sm:block text-[10px] font-bold text-[#00683C] tracking-wider uppercase mt-1 leading-none">
             HỆ THỐNG PHÂN PHỐI CHÍNH HÃNG
           </span>
         </Link>
@@ -166,7 +167,7 @@ export function Header() {
 
           <Link
             href="/du-toan-bao-gia"
-            className="relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-lg bg-[#007A4D] hover:bg-[#00613d] text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all whitespace-nowrap group"
+            className="relative inline-flex items-center gap-2 px-3.5 sm:px-4 min-h-[42px] rounded-lg bg-[#007A4D] hover:bg-[#00613d] text-white font-bold text-xs sm:text-sm shadow-xs hover:shadow transition-all whitespace-nowrap group"
           >
             <FileSpreadsheet className="w-4 h-4 text-emerald-100 shrink-0" />
             <span className="hidden sm:inline">Dự toán &amp; Báo giá</span>
@@ -181,7 +182,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-[#102035] hover:bg-slate-100 transition-colors border border-slate-200/80"
+            className="lg:hidden inline-flex items-center justify-center min-w-[42px] min-h-[42px] rounded-lg text-[#102035] hover:bg-slate-100 transition-colors border border-slate-200/80"
             aria-label="Mở menu điều hướng"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -191,7 +192,7 @@ export function Header() {
 
       {/* 3. MOBILE MENU DRAWER */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 shadow-xl space-y-1.5 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden fixed inset-x-0 top-[88px] sm:top-[104px] bottom-0 z-50 border-t border-slate-100 bg-white px-4 pt-3 pb-10 shadow-xl space-y-1.5 overflow-y-auto">
           {siteConfig.navItems.map((item) => {
             if (item.children) {
               return (
@@ -201,7 +202,7 @@ export function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-xs text-[#007A4D] font-semibold"
+                      className="text-xs text-[#007A4D] font-semibold py-1.5 px-2 rounded-md hover:bg-emerald-50"
                     >
                       Xem tất cả
                     </Link>
@@ -212,7 +213,7 @@ export function Header() {
                         key={subItem.label}
                         href={subItem.href}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-3 py-1.5 text-sm text-slate-600 hover:text-[#007A4D] font-medium rounded-md hover:bg-emerald-50/50"
+                        className="flex items-center min-h-[40px] px-3 py-2 text-sm text-slate-600 hover:text-[#007A4D] font-medium rounded-md hover:bg-emerald-50/50"
                       >
                         • {subItem.label}
                       </Link>
@@ -227,7 +228,7 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-sm font-semibold text-[#102035] hover:bg-emerald-50 hover:text-[#007A4D] transition-colors"
+                className="flex items-center min-h-[44px] px-3 py-2.5 rounded-lg text-sm font-semibold text-[#102035] hover:bg-emerald-50 hover:text-[#007A4D] transition-colors"
               >
                 {item.label}
               </Link>
@@ -237,7 +238,7 @@ export function Header() {
           <div className="pt-3 mt-2 border-t border-slate-100">
             <a
               href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-50 text-[#007A4D] font-bold text-sm border border-[#007A4D]/20"
+              className="flex items-center justify-center gap-2 min-h-[44px] py-3 px-4 rounded-xl bg-emerald-50 text-[#007A4D] font-bold text-sm border border-[#007A4D]/20"
             >
               <Phone className="w-4 h-4" />
               <span>Gọi Hotline: {siteConfig.hotline}</span>

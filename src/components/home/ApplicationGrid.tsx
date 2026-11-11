@@ -48,10 +48,10 @@ const focusApplications: FocusApplication[] = [
 
 export function ApplicationGrid() {
   return (
-    <section className="py-16 sm:py-20 bg-[#F6F9FB] border-t border-slate-200/70">
+    <section className="py-10 sm:py-20 bg-[#F6F9FB] border-t border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-10 sm:mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 sm:gap-4 mb-6 sm:mb-12">
           <div>
             <div className="flex items-center gap-3">
               <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
@@ -66,7 +66,7 @@ export function ApplicationGrid() {
 
           <Link
             href="/ung-dung"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
+            className="inline-flex items-center gap-1.5 min-h-[40px] text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
           >
             <span>Xem tất cả 6 lĩnh vực ứng dụng</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -74,7 +74,7 @@ export function ApplicationGrid() {
         </div>
 
         {/* 4 Image Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {focusApplications.map((app) => (
             <Link
               key={app.id}

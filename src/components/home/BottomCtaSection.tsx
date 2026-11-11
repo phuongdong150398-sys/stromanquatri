@@ -5,9 +5,9 @@ import { siteConfig } from "@/config/site";
 
 export function BottomCtaSection() {
   return (
-    <section className="py-14 sm:py-18 bg-gradient-to-r from-[#061B33] via-[#082B4A] to-[#061B33] text-white relative overflow-hidden">
+    <section className="py-10 sm:py-18 bg-gradient-to-r from-[#061B33] via-[#082B4A] to-[#061B33] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="rounded-3xl bg-white/[0.04] border border-white/10 p-8 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div className="rounded-2xl sm:rounded-3xl bg-white/[0.04] border border-white/10 p-6 sm:p-10 lg:p-12 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 sm:gap-8">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00C389]">
               <ShieldCheck className="w-4 h-4" />

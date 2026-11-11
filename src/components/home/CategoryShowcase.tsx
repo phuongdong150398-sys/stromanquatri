@@ -50,10 +50,10 @@ const showcaseCategories: ShowcaseCategory[] = [
 
 export function CategoryShowcase() {
   return (
-    <section className="py-12 sm:py-16 bg-white">
+    <section className="py-9 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading matching mockup */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8 sm:mb-10">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3 sm:gap-4 mb-6 sm:mb-10">
           <div>
             <div className="flex items-center gap-3">
               <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
@@ -61,14 +61,14 @@ export function CategoryShowcase() {
                 Danh mục sản phẩm
               </h2>
             </div>
-            <p className="mt-1.5 text-sm text-slate-600 pl-10">
+            <p className="mt-1.5 text-sm text-slate-600 sm:pl-10">
               Hệ sinh thái sản phẩm ống nhựa và phụ kiện đồng bộ Stroman
             </p>
           </div>
 
           <Link
             href="/san-pham"
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
+            className="inline-flex items-center gap-1.5 min-h-[40px] text-sm font-bold text-[#007A4D] hover:text-[#005f3b] transition-colors group shrink-0"
           >
             <span>Xem tất cả sản phẩm</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -76,7 +76,7 @@ export function CategoryShowcase() {
         </div>
 
         {/* 6 Categories Grid: Desktop 6/row, Tablet 3/row, Mobile 2/row */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5">
           {showcaseCategories.map((cat) => (
             <Link
               key={cat.id}
@@ -84,7 +84,7 @@ export function CategoryShowcase() {
               className="group h-full bg-white rounded-2xl border border-slate-200/80 shadow-xs hover:shadow-md hover:-translate-y-1 hover:border-[#007A4D]/40 transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Clean Image Stage */}
-              <div className="h-36 sm:h-40 bg-[#F6F9FB] p-3 flex items-center justify-center overflow-hidden">
+              <div className="h-28 sm:h-40 bg-[#F6F9FB] p-2.5 sm:p-3 flex items-center justify-center overflow-hidden">
                 <img
                   src={cat.image}
                   alt={cat.name}
@@ -94,7 +94,7 @@ export function CategoryShowcase() {
               </div>
 
               {/* Card Title + Detail Arrow Button */}
-              <div className="p-3.5 sm:p-4 bg-white border-t border-slate-100 flex items-center justify-between gap-2">
+              <div className="p-3 sm:p-4 bg-white border-t border-slate-100 flex items-center justify-between gap-2">
                 <h3 className="text-xs sm:text-[13px] font-bold text-[#102035] group-hover:text-[#007A4D] transition-colors leading-snug">
                   {cat.name}
                 </h3>

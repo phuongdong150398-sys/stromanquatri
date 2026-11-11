@@ -139,7 +139,7 @@ export default function DealerPolicyPage() {
         </div>
 
         {/* REGISTRATION FORM SECTION */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 shadow-sm">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-5 sm:p-12 shadow-sm">
           {isSubmitted ? (
             <div className="text-center py-8">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
@@ -148,22 +148,22 @@ export default function DealerPolicyPage() {
               <h3 className="text-2xl font-bold text-slate-900 mb-2">
                 Hồ Sơ Đăng Ký Đã Được Tiếp Nhận!
               </h3>
-              <p className="text-xs text-slate-600 max-w-md mx-auto mb-6">
+              <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-6">
                 Chuyên viên phát triển thị trường khu vực của Stroman sẽ liên hệ lại với Quý đối tác qua số điện thoại{" "}
                 <strong className="text-slate-900">{form.phone}</strong> trong vòng 24 giờ làm việc để tư vấn mức chiết khấu và hợp đồng nguyên tắc.
               </p>
               <button
                 type="button"
                 onClick={() => setIsSubmitted(false)}
-                className="px-6 py-2.5 rounded-xl bg-stroman-600 text-white font-bold text-xs hover:bg-stroman-700 transition-colors"
+                className="min-h-[44px] px-6 py-2.5 rounded-xl bg-stroman-600 text-white font-bold text-xs hover:bg-stroman-700 transition-colors"
               >
                 Gửi lại thông tin khác
               </button>
             </div>
           ) : (
             <div>
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-black text-slate-900">
+              <div className="text-center mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                   Đăng Ký Nhận Bảng Báo Giá Chiết Khấu Đại Lý
                 </h2>
                 <p className="mt-1 text-xs text-slate-500">
@@ -174,7 +174,7 @@ export default function DealerPolicyPage() {
               <form onSubmit={handleSubmit} className="space-y-4 text-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Tên Doanh Nghiệp / Cửa Hàng <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -182,15 +182,15 @@ export default function DealerPolicyPage() {
                       placeholder="VD: Cửa hàng VLXD Tuấn Phát"
                       value={form.businessName}
                       onChange={(e) => setForm({ ...form, businessName: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                     {errors.businessName && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.businessName}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.businessName}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Người Đại Diện Liên Hệ <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -198,17 +198,17 @@ export default function DealerPolicyPage() {
                       placeholder="Nguyễn Văn A"
                       value={form.contactPerson}
                       onChange={(e) => setForm({ ...form, contactPerson: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                     {errors.contactPerson && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.contactPerson}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.contactPerson}</p>
                     )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Số Điện Thoại / Zalo <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -216,15 +216,15 @@ export default function DealerPolicyPage() {
                       placeholder="0912 345 678"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                     {errors.phone && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.phone}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.phone}</p>
                     )}
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Email Nhận Chính Sách <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -232,28 +232,28 @@ export default function DealerPolicyPage() {
                       placeholder="daily@gmail.com"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                     {errors.email && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.email}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.email}</p>
                     )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">Tỉnh / Thành Phố</label>
+                    <label className="block font-bold text-slate-700 mb-1.5">Tỉnh / Thành Phố</label>
                     <input
                       type="text"
                       placeholder="VD: Hà Nội, Hải Phòng, Bắc Ninh..."
                       value={form.province}
                       onChange={(e) => setForm({ ...form, province: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-slate-700 mb-1">
+                    <label className="block font-bold text-slate-700 mb-1.5">
                       Quận / Huyện <span className="text-rose-500">*</span>
                     </label>
                     <input
@@ -261,16 +261,16 @@ export default function DealerPolicyPage() {
                       placeholder="VD: Quận Cầu Giấy"
                       value={form.district}
                       onChange={(e) => setForm({ ...form, district: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                      className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                     />
                     {errors.district && (
-                      <p className="text-rose-500 text-[11px] mt-1">{errors.district}</p>
+                      <p className="text-rose-500 text-xs mt-1">{errors.district}</p>
                     )}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 mb-1">
+                  <label className="block font-bold text-slate-700 mb-1.5">
                     Ghi Chú Hoặc Mong Muốn Hợp Tác
                   </label>
                   <textarea
@@ -278,7 +278,7 @@ export default function DealerPolicyPage() {
                     placeholder="Ví dụ: Đang phân phối thiết bị vệ sinh, muốn nhập thêm ống PPR & HDPE..."
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-stroman-600"
                   ></textarea>
                 </div>
 
@@ -291,7 +291,7 @@ export default function DealerPolicyPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  className="w-full min-h-[48px] py-3.5 px-6 rounded-xl bg-stroman-600 hover:bg-stroman-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <span>Đang gửi hồ sơ...</span>

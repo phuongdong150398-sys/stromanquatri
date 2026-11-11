@@ -57,10 +57,10 @@ const verifiedStandards: StandardItem[] = [
 
 export function StandardsSection() {
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-10 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-12">
           <div>
             <div className="flex items-center gap-3">
               <span className="w-7 h-[3px] bg-[#007A4D] rounded-full shrink-0" />
@@ -80,15 +80,15 @@ export function StandardsSection() {
         </div>
 
         {/* Clean Verified Standards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5">
           {verifiedStandards.map((std) => (
             <Link
               key={std.code}
               href={std.href}
-              className="group bg-[#F6F9FB] hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#007A4D]/40 p-6 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group bg-[#F6F9FB] hover:bg-white rounded-2xl border border-slate-200/80 hover:border-[#007A4D]/40 p-4 sm:p-6 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="flex items-center justify-between gap-2 mb-2.5 sm:mb-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#061B33] text-white text-xs font-extrabold tracking-wide">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#00C389]" />
                     {std.code}
@@ -96,13 +96,13 @@ export function StandardsSection() {
                   <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-[#007A4D] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
 
-                <div className="text-[11px] font-bold text-[#007A4D] uppercase tracking-wider mb-1">
+                <div className="text-xs font-bold text-[#007A4D] uppercase tracking-wider mb-1">
                   {std.productLine}
                 </div>
                 <h3 className="text-base font-bold text-[#102035] group-hover:text-[#007A4D] transition-colors">
                   {std.title}
                 </h3>
-                <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+                <p className="mt-1.5 sm:mt-2 text-xs text-slate-600 leading-relaxed">
                   {std.scope}
                 </p>
               </div>

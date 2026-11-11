@@ -95,8 +95,8 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-      <div className="pb-4 mb-6 border-b border-slate-100">
+    <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+      <div className="pb-4 mb-5 sm:mb-6 border-b border-slate-100">
         <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
           <ShieldCheck className="w-5 h-5 text-stroman-600" />
           <span>Thông Tin Tiếp Nhận Báo Giá Chiết Khấu</span>
@@ -110,7 +110,7 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
         {/* Tên & Số điện thoại */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block font-bold text-slate-700 mb-1">
+            <label className="block font-bold text-slate-700 mb-1.5">
               Họ và tên người nhận báo giá <span className="text-rose-500">*</span>
             </label>
             <input
@@ -118,20 +118,20 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
               placeholder="Nguyễn Văn A"
               value={form.fullName}
               onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-              className={`w-full px-3 py-2 rounded-lg border ${
+              className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border ${
                 errors.fullName ? "border-rose-400 bg-rose-50/50" : "border-slate-300"
-              } focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs`}
+              } focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs`}
             />
             {errors.fullName && (
-              <p className="mt-1 text-rose-500 flex items-center gap-1 text-[11px]">
-                <AlertCircle className="w-3 h-3" />
+              <p className="mt-1 text-rose-500 flex items-center gap-1 text-xs">
+                <AlertCircle className="w-3.5 h-3.5" />
                 {errors.fullName}
               </p>
             )}
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 mb-1">
+            <label className="block font-bold text-slate-700 mb-1.5">
               Số điện thoại / Zalo <span className="text-rose-500">*</span>
             </label>
             <input
@@ -139,13 +139,13 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
               placeholder="0912 345 678"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className={`w-full px-3 py-2 rounded-lg border ${
+              className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border ${
                 errors.phone ? "border-rose-400 bg-rose-50/50" : "border-slate-300"
-              } focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs`}
+              } focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs`}
             />
             {errors.phone && (
-              <p className="mt-1 text-rose-500 flex items-center gap-1 text-[11px]">
-                <AlertCircle className="w-3 h-3" />
+              <p className="mt-1 text-rose-500 flex items-center gap-1 text-xs">
+                <AlertCircle className="w-3.5 h-3.5" />
                 {errors.phone}
               </p>
             )}
@@ -155,24 +155,24 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
         {/* Email & Tỉnh Thành */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block font-bold text-slate-700 mb-1">Email nhận file PDF</label>
+            <label className="block font-bold text-slate-700 mb-1.5">Email nhận file PDF</label>
             <input
               type="email"
               placeholder="duan@congty.com"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs"
             />
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 mb-1">
+            <label className="block font-bold text-slate-700 mb-1.5">
               Địa bàn công trình / Khu vực <span className="text-rose-500">*</span>
             </label>
             <select
               value={form.province}
               onChange={(e) => setForm({ ...form, province: e.target.value })}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs bg-white text-slate-800"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs bg-white text-slate-800"
             >
               {provinces.map((prov) => (
                 <option key={prov} value={prov}>
@@ -186,24 +186,24 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
         {/* Công ty / Dự án & Đối tượng */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block font-bold text-slate-700 mb-1">Tên Công Ty / Dự Án</label>
+            <label className="block font-bold text-slate-700 mb-1.5">Tên Công Ty / Dự Án</label>
             <input
               type="text"
               placeholder="VD: Nhà thầu Delta / Dự án KĐT Vinhomes..."
               value={form.companyOrProject}
               onChange={(e) => setForm({ ...form, companyOrProject: e.target.value })}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs"
             />
           </div>
 
           <div>
-            <label className="block font-bold text-slate-700 mb-1">Loại hình đối tác</label>
+            <label className="block font-bold text-slate-700 mb-1.5">Loại hình đối tác</label>
             <select
               value={form.role}
               onChange={(e) =>
                 setForm({ ...form, role: e.target.value as QuoteRequestFormValues["role"] })
               }
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs bg-white text-slate-800"
+              className="w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs bg-white text-slate-800"
             >
               <option value="contractor">Nhà thầu thi công xây dựng</option>
               <option value="dealer">Cửa hàng / Đại lý phân phối</option>
@@ -215,7 +215,7 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
 
         {/* Ghi chú */}
         <div>
-          <label className="block font-bold text-slate-700 mb-1">
+          <label className="block font-bold text-slate-700 mb-1.5">
             Ghi chú thêm về yêu cầu vận chuyển, thời gian giao hàng
           </label>
           <textarea
@@ -223,7 +223,7 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
             placeholder="Ví dụ: Giao hàng tại công trình Quận 9, cần CO/CQ và hóa đơn VAT..."
             value={form.notes}
             onChange={(e) => setForm({ ...form, notes: e.target.value })}
-            className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-xs"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-stroman-600 text-base sm:text-xs"
           ></textarea>
         </div>
 
@@ -237,7 +237,7 @@ export function QuoteForm({ onSuccess }: QuoteFormProps) {
         <button
           type="submit"
           disabled={isSubmitting || items.length === 0}
-          className={`w-full py-3.5 px-6 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 shadow-md transition-all ${
+          className={`w-full min-h-[48px] py-3.5 px-6 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2 shadow-md transition-all ${
             items.length === 0
               ? "bg-slate-300 cursor-not-allowed"
               : isSubmitting

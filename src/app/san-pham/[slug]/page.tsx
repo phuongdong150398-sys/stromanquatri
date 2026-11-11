@@ -57,42 +57,42 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     .slice(0, 3);
 
   return (
-    <div className="bg-slate-50 min-h-screen py-8">
+    <div className="bg-slate-50 min-h-screen py-5 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* BREADCRUMB */}
-        <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6">
-          <Link href="/" className="hover:text-stroman-600">
+        <nav className="flex items-center gap-1.5 text-xs text-slate-500 mb-4 sm:mb-6 whitespace-nowrap overflow-x-auto no-scrollbar py-1">
+          <Link href="/" className="hover:text-stroman-600 inline-flex items-center min-h-[36px]">
             Trang Chủ
           </Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <Link href="/san-pham" className="hover:text-stroman-600">
+          <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+          <Link href="/san-pham" className="hover:text-stroman-600 inline-flex items-center min-h-[36px]">
             Sản Phẩm
           </Link>
-          <ChevronRight className="w-3.5 h-3.5" />
-          <span className="text-slate-900 font-bold truncate max-w-xs sm:max-w-md">
+          <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+          <span className="text-slate-900 font-bold truncate max-w-[210px] sm:max-w-md">
             {product.name}
           </span>
         </nav>
 
         {/* HERO SECTION OF PRODUCT DETAIL */}
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-10 shadow-sm mb-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left: Product Image */}
-            <div className="lg:col-span-5 bg-gradient-to-b from-slate-50 to-slate-100 rounded-2xl p-8 flex items-center justify-center border border-slate-100 relative">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 p-4 sm:p-10 shadow-sm mb-8 sm:mb-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+            {/* Left on Desktop, Second on Mobile: Product Image */}
+            <div className="lg:col-span-5 order-2 lg:order-1 bg-gradient-to-b from-slate-50 to-slate-100 rounded-2xl p-4 sm:p-8 flex items-center justify-center border border-slate-100 relative">
               {product.bannerBadge && (
-                <span className="absolute top-4 left-4 px-3 py-1 text-xs font-bold text-white bg-stroman-600 rounded-full shadow-sm">
+                <span className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 text-xs font-bold text-white bg-stroman-600 rounded-full shadow-sm">
                   {product.bannerBadge}
                 </span>
               )}
               <img
                 src={product.image}
                 alt={product.name}
-                className="max-h-80 w-auto object-contain drop-shadow-lg"
+                className="max-h-52 sm:max-h-72 lg:max-h-80 w-auto object-contain drop-shadow-lg"
               />
             </div>
 
-            {/* Right: Technical Highlights */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            {/* Right on Desktop, First on Mobile: Technical Highlights */}
+            <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-between">
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
                   <span className="px-2.5 py-1 text-xs font-bold text-stroman-700 bg-stroman-50 rounded-md border border-stroman-200/50">
@@ -112,12 +112,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   {product.name}
                 </h1>
 
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                <p className="mt-2.5 sm:mt-3 text-sm text-slate-600 leading-relaxed">
                   {product.shortDesc}
                 </p>
 
                 {/* ADVANTAGES LIST */}
-                <div className="mt-6 pt-6 border-t border-slate-100 space-y-2.5">
+                <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-slate-100 space-y-2.5">
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                     Đặc Tính Nổi Bật:
                   </h4>
@@ -133,20 +133,20 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               </div>
 
               {/* ACTION BUTTONS */}
-              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center gap-4">
+              <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-slate-100 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href="#spec-table"
-                  className="px-6 py-3 rounded-xl bg-stroman-600 hover:bg-stroman-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                  className="min-h-[44px] px-6 py-3 rounded-xl bg-stroman-600 hover:bg-stroman-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  <FileSpreadsheet className="w-4 h-4" />
-                  <span>Tra Cứu Bảng Quy Cách & Dự Toán</span>
+                  <FileSpreadsheet className="w-4 h-4 shrink-0" />
+                  <span>Tra Cứu Bảng Quy Cách &amp; Dự Toán</span>
                 </a>
 
                 <a
                   href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
-                  className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-colors flex items-center gap-2"
+                  className="min-h-[44px] px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-sm transition-colors flex items-center justify-center gap-2"
                 >
-                  <Phone className="w-4 h-4 text-emerald-600" />
+                  <Phone className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Hotline Dự Án: {siteConfig.hotline}</span>
                 </a>
               </div>

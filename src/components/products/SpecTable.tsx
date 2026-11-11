@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, ShieldCheck, Download, FileSpreadsheet } from "lucide-react";
-import { Product, ProductSpecification } from "@/types/product";
+import { Search, ShieldCheck } from "lucide-react";
+import { Product } from "@/types/product";
+import { siteConfig } from "@/config/site";
 import { AddToQuoteButton } from "./AddToQuoteButton";
 
 interface SpecTableProps {
@@ -31,8 +32,8 @@ export function SpecTable({ product }: SpecTableProps) {
             <ShieldCheck className="w-4 h-4" />
             <span>Thông Số Kỹ Thuật Tiêu Chuẩn Đức</span>
           </div>
-          <h3 className="text-lg font-bold text-white mt-1">
-            Bảng Tra Quy Cách Kích Thước & Áp Suất Làm Việc
+          <h3 className="text-base sm:text-lg font-bold text-white mt-1">
+            Bảng Tra Quy Cách Kích Thước &amp; Áp Suất Làm Việc
           </h3>
         </div>
 
@@ -43,15 +44,63 @@ export function SpecTable({ product }: SpecTableProps) {
               placeholder="Tra nhanh Ø hoặc PN..."
               value={filterQuery}
               onChange={(e) => setFilterQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-400"
+              className="w-full min-h-[42px] pl-9 pr-3 py-2 text-sm sm:text-xs rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
             />
-            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2.5" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
           </div>
         </div>
       </div>
 
-      {/* Table container */}
-      <div className="overflow-x-auto">
+      {/* MOBILE CARD LIST (< md): ensures AddToQuote CTA is always visible without horizontal scroll */}
+      <div className="md:hidden divide-y divide-slate-200">
+        {filteredSpecs.length > 0 ? (
+          filteredSpecs.map((spec) => (
+            <div key={spec.code} className="p-4 space-y-3 bg-white">
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <span className="text-base font-black text-emerald-800">
+                    {spec.nominalDiameter}
+                  </span>
+                  <div className="text-xs font-mono text-slate-500 mt-0.5">
+                    Mã: {spec.code}
+                  </div>
+                </div>
+                <span className="inline-block px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-100 text-emerald-800 shrink-0">
+                  {spec.pressureRating}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 text-xs bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+                <div>
+                  <span className="block text-slate-400">Độ dày</span>
+                  <strong className="text-slate-800">{spec.wallThickness}</strong>
+                </div>
+                <div>
+                  <span className="block text-slate-400">Chiều dài</span>
+                  <strong className="text-slate-800">{spec.standardLength}</strong>
+                </div>
+                <div>
+                  <span className="block text-slate-400">Tiêu chuẩn</span>
+                  <strong className="text-slate-700">{spec.standard}</strong>
+                </div>
+              </div>
+
+              <AddToQuoteButton
+                product={product}
+                specification={spec}
+                compact={false}
+              />
+            </div>
+          ))
+        ) : (
+          <div className="p-8 text-center text-sm text-slate-400">
+            Không tìm thấy quy cách phù hợp với từ khóa &quot;{filterQuery}&quot;.
+          </div>
+        )}
+      </div>
+
+      {/* DESKTOP TABLE (md+) */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left text-xs">
           <thead className="bg-slate-100/80 text-slate-700 uppercase font-bold border-b border-slate-200">
             <tr>
@@ -76,11 +125,11 @@ export function SpecTable({ product }: SpecTableProps) {
                   <td className="py-3 px-4 font-mono font-medium text-slate-500">
                     {spec.code}
                   </td>
-                  <td className="py-3 px-4 font-bold text-slate-900 text-sm text-emerald-800">
+                  <td className="py-3 px-4 font-bold text-sm text-emerald-800">
                     {spec.nominalDiameter}
                   </td>
                   <td className="py-3 px-4">
-                    <span className="inline-block px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-100 text-emerald-800">
+                    <span className="inline-block px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-800">
                       {spec.pressureRating}
                     </span>
                   </td>
@@ -116,12 +165,18 @@ export function SpecTable({ product }: SpecTableProps) {
       </div>
 
       {/* Footer hint */}
-      <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-2">
+      <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-slate-600 gap-2">
         <span>
-          * Lưu ý: Các quy cách đặc biệt không có trong bảng vui lòng liên hệ hotline{" "}
-          <strong className="text-slate-800">1900 6086</strong> để đặt hàng gia công theo yêu cầu.
+          * Lưu ý: Các quy cách đặc biệt vui lòng liên hệ hotline{" "}
+          <a
+            href={`tel:${siteConfig.hotline.replace(/\s+/g, "")}`}
+            className="font-bold text-slate-900 hover:text-emerald-700 underline"
+          >
+            {siteConfig.hotline}
+          </a>{" "}
+          để đặt hàng gia công theo yêu cầu.
         </span>
-        <span className="font-semibold text-emerald-700">
+        <span className="font-semibold text-emerald-700 shrink-0">
           Hiển thị {filteredSpecs.length} / {product.specifications.length} quy cách
         </span>
       </div>

@@ -8,9 +8,9 @@ export function DistributionPreview() {
   const featuredHubs = dealersData.filter((d) => d.isFeatured).slice(0, 4);
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-t border-slate-200/70">
+    <section className="py-10 sm:py-20 bg-white border-t border-slate-200/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* LEFT: TEXT & FEATURED WAREHOUSE HUBS */}
           <div className="lg:col-span-6 space-y-5">
             <div>
