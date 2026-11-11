@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Eye, EyeOff, Lock, Mail, ShieldCheck, AlertCircle, Loader2 } from "lucide-react";
@@ -11,26 +10,31 @@ interface AdminLoginFormProps {
   initialError?: string;
 }
 
+function getErrorMessageFromCode(code?: string): string {
+  if (code === "forbidden") {
+    return "Tài khoản của bạn chưa nằm trong danh sách quản trị viên (ADMIN_ALLOWED_EMAILS).";
+  }
+  if (code === "config_missing") {
+    return "Hệ thống chưa cấu hình đủ biến môi trường Supabase trên server.";
+  }
+  return "";
+}
+
 export function AdminLoginForm({ initialError }: AdminLoginFormProps) {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  const getInitialErrorMessage = (code?: string) => {
-    if (code === "forbidden") {
-      return "Tài khoản của bạn chưa nằm trong danh sách quản trị viên (ADMIN_ALLOWED_EMAILS).";
-    }
-    if (code === "config_missing") {
-      return "Hệ thống chưa cấu hình đủ biến môi trường Supabase trên server.";
-    }
-    return "";
-  };
-
   const [errorMessage, setErrorMessage] = useState<string>(() =>
-    getInitialErrorMessage(initialError)
+    getErrorMessageFromCode(initialError)
   );
+
+  useEffect(() => {
+    const msg = getErrorMessageFromCode(initialError);
+    if (msg) {
+      setErrorMessage(msg);
+    }
+  }, [initialError]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,8 +63,7 @@ export function AdminLoginForm({ initialError }: AdminLoginFormProps) {
       }
 
       if (data.user) {
-        router.push("/admin");
-        router.refresh();
+        window.location.assign("/admin");
       }
     } catch (err) {
       setErrorMessage(

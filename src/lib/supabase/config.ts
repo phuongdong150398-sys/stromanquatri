@@ -14,7 +14,9 @@ export function isSupabaseConfigured(): boolean {
 }
 
 export function getAllowedAdminEmails(): string[] {
-  const raw = process.env.ADMIN_ALLOWED_EMAILS || "phuongdongmta@gmail.com";
+  const raw =
+    process.env.ADMIN_ALLOWED_EMAILS ||
+    "phuongdongmi4@gmail.com,phuongdongmta@gmail.com";
   return raw
     .split(",")
     .map((e) => e.trim().toLowerCase())
