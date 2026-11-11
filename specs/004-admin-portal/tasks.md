@@ -29,4 +29,5 @@
 ## Phase 5 — Kiểm Thử & Sẵn Sàng Deploy Vercel
 - [x] T014 Chạy `npx tsc --noEmit` và `npm run build` kiểm tra 0 lỗi.
 - [x] T015 Kiểm thử tự động API bảo mật (chặn truy cập chưa đăng nhập), form submission và giao diện `/admin` trên Chrome headless.
-- [ ] T016 Commit & push lên GitHub `origin` (`stromanquatri.git`) + hoàn tất bước cấu hình Supabase SQL Editor & Vercel Env Vars.
+- [x] T016 Commit & push lên GitHub `origin` (`stromanquatri.git`), liên kết Vercel (`dong-b9b6/stromanquatri`), đồng bộ 5 biến môi trường và deploy Production.
+- [ ] T017 Người dùng chạy `001_init_schema.sql` trong Supabase SQL Editor, tạo tài khoản Auth Admin và bấm Seed Data tại `/admin`.
