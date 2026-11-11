@@ -72,7 +72,7 @@ export default async function HomePage() {
                   <div>
                     <Link
                       href={`/tin-tuc/${item.slug}`}
-                      className={`block relative h-48 overflow-hidden ${
+                      className={`block relative aspect-[16/9] overflow-hidden ${
                         isGraphic ? "bg-white p-4 border-b border-slate-100" : "bg-slate-100"
                       }`}
                     >
@@ -84,15 +84,17 @@ export default async function HomePage() {
                         }`}
                         loading="lazy"
                       />
-                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-xs font-bold text-white bg-[#061B33]/85 backdrop-blur-xs">
-                        {item.category}
-                      </span>
                     </Link>
 
                     <div className="p-5">
-                      <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-2">
-                        <Calendar className="w-3.5 h-3.5 text-[#007A4D]" />
-                        <span>{item.date}</span>
+                      <div className="flex items-center justify-between gap-2 mb-2.5">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-[#007A4D] border border-[#007A4D]/20">
+                          {item.category}
+                        </span>
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                          <Calendar className="w-3.5 h-3.5 text-[#007A4D]" />
+                          <span>{item.date}</span>
+                        </div>
                       </div>
 
                       <h3 className="text-sm font-bold text-[#102035] group-hover:text-[#007A4D] transition-colors line-clamp-2 leading-snug">

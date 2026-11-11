@@ -296,7 +296,7 @@ export default async function NewsDetailPage({ params }: NewsDetailProps) {
                   >
                     <div>
                       <div
-                        className={`h-40 overflow-hidden ${
+                        className={`aspect-[16/9] overflow-hidden ${
                           relContain ? "bg-white p-3 border-b border-slate-100" : "bg-slate-100"
                         }`}
                       >
