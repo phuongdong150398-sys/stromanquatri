@@ -5,7 +5,7 @@ export const siteConfig = {
   slogan: "Giải pháp toàn diện về nguồn nước cho mọi công trình",
   description:
     "Tổng Kho Phân Phối Chính Hãng Ống Nhựa Stroman tại Quảng Trị, Quảng Bình và Miền Trung. Cung cấp đầy đủ các dòng ống uPVC, PP-R Chịu Nhiệt, PP-R Kháng Khuẩn, HDPE PE100 tiêu chuẩn CHLB Đức thuộc Tập đoàn Tân Á Đại Thành. Giá xuất kho trực tiếp, chiết khấu cao cho đại lý và dự án.",
-  url: "https://stroman-quangtri.vn",
+  url: "https://stromanquangtri.com",
   logo: "/images/logo-stroman.png",
   hotline: "0915 333 808",
   phoneDisplay: "0915 333 808",
