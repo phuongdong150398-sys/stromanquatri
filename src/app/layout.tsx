@@ -46,6 +46,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/images/hero-banner.png"],
   },
+  verification: {
+    google: "XmTB5fiCIjW-mxKZeuBap4xRwUGJ02ywSA_4Y_yBYBY",
+  },
 };
 
 export default function RootLayout({
